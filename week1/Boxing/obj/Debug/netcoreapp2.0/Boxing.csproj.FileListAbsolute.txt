@@ -1,0 +1,10 @@
+/home/eric/programming/C#/week1/Boxing/bin/Debug/netcoreapp2.0/Boxing.deps.json
+/home/eric/programming/C#/week1/Boxing/bin/Debug/netcoreapp2.0/Boxing.runtimeconfig.json
+/home/eric/programming/C#/week1/Boxing/bin/Debug/netcoreapp2.0/Boxing.runtimeconfig.dev.json
+/home/eric/programming/C#/week1/Boxing/bin/Debug/netcoreapp2.0/Boxing.dll
+/home/eric/programming/C#/week1/Boxing/bin/Debug/netcoreapp2.0/Boxing.pdb
+/home/eric/programming/C#/week1/Boxing/obj/Debug/netcoreapp2.0/Boxing.csproj.CoreCompileInputs.cache
+/home/eric/programming/C#/week1/Boxing/obj/Debug/netcoreapp2.0/Boxing.AssemblyInfoInputs.cache
+/home/eric/programming/C#/week1/Boxing/obj/Debug/netcoreapp2.0/Boxing.AssemblyInfo.cs
+/home/eric/programming/C#/week1/Boxing/obj/Debug/netcoreapp2.0/Boxing.dll
+/home/eric/programming/C#/week1/Boxing/obj/Debug/netcoreapp2.0/Boxing.pdb

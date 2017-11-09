@@ -1,0 +1,10 @@
+/home/eric/programming/C#/test/bin/Debug/netcoreapp2.0/test.deps.json
+/home/eric/programming/C#/test/bin/Debug/netcoreapp2.0/test.runtimeconfig.json
+/home/eric/programming/C#/test/bin/Debug/netcoreapp2.0/test.runtimeconfig.dev.json
+/home/eric/programming/C#/test/bin/Debug/netcoreapp2.0/test.dll
+/home/eric/programming/C#/test/bin/Debug/netcoreapp2.0/test.pdb
+/home/eric/programming/C#/test/obj/Debug/netcoreapp2.0/test.csproj.CoreCompileInputs.cache
+/home/eric/programming/C#/test/obj/Debug/netcoreapp2.0/test.AssemblyInfoInputs.cache
+/home/eric/programming/C#/test/obj/Debug/netcoreapp2.0/test.AssemblyInfo.cs
+/home/eric/programming/C#/test/obj/Debug/netcoreapp2.0/test.dll
+/home/eric/programming/C#/test/obj/Debug/netcoreapp2.0/test.pdb

@@ -1,0 +1,69 @@
+I. dotNet
+    A.  C# programming language and .Net COre enviroment
+    B.  1st chapter only an introduction to concepts.
+    C. second is C# in console
+        1. syntax and workflow change
+            a.workflow-compiled language
+    D. .Net miicroframework liek flask.
+        1.canlled NancyFx, commage to ruby's sinatra
+    E. The ASP.NET core -closer to django
+    F. built in ORM for .NET Entity Framework
+        1. more sophisticated
+    G. Finally Security and scalability
+    |H. Windows Identity Foundation and Microsoft Cognitive Services
+II. This chapter
+    A. Compiled languages workflow
+        1.specifically .NET framework and C#
+        2. introduce .NET core and ASP.NET and Entity Framework
+        3. Installation of required software
+        4. Build first C# app
+        5. Main server side language is C#
+            a needs to be built before run
+            b.history
+                A) Not done with circuts but vaccuum tubes originally by IBM\
+                B) worked with assembly language which gave very specific but needed specification for every step
+                C) it was dependent on hardware architecture-limiting assembly  
+                    1) made FORTRAN a languageto translate formulars from human readable to machine readable
+                        a) it compiled-accepts wsource code and translated to assembly
+                        b) AVOIDS SELF crafting
+                        Formular Translating language
+            c. compilers
+                A) reduce high level instructions
+                B) read entire file to understand logic
+                C) enforces rules
+                    1)exposes bugs
+                D) create object files as output
+                    1)linker puts objects togther as well as libraaries needed
+                    2)static libraries exist now too that mkae files large
+                    3).dll dynamic linkage liberary shrinks apps and allow patial updates/patches
+                E)sometimes compressed and put in self extracting installer
+    B. Runtimes
+        1. Inventing BASIC Pascal and C.
+            a. always put out low level code for specific machiens
+                A) hard on software and harware guys
+                B) new features and new langauges adding updates
+            b. double the compiler!!!!!
+                A) front end compilers
+                    1) code syntax
+                    2)code flow tree
+                B)back end comp
+                    1)analyze code tree
+                    2) code generation(codegen)
+                C)creates independent checking of two parts and development
+                D) interface is called intermediate representation (IR)
+                    1) language neutral, hardware neutral logical communication
+                E) some languages do backend at run time, some do at Build time
+                    1) Basic had come out and needed interpreter.
+    C. INterpreters
+        1. allows instant execution of source code translating to machine code
+        2. as opposed to fortran all is done at build time  
+            a. basic is compiled on the fly including codgen are executed right away interpretor has front and back end at once
+            b. basic interpteter take high level code. No reason to not take low level code, accepted something like IR more general Runtimes
+            c. basic in 1991 was mostly compiled the VB runtime was like dll. vcrt visual c runtime
+        3.more ambitions
+            a. code generating runtime gives us pre-compiling our cources with error checks into midlevel code
+                A) more pure front end so it is harware independent
+                runtime is more back end    
+                    1) new apps just work.  THis is the point of JRE
+                        a)write once run anywhere
+                        b)modules complided only if needed called just in time compiling

@@ -1,0 +1,25 @@
+@using System;
+@using System.Collections.Generic;
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Calling Card for users</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+</head>
+<body>
+    <h2>Enter a user to display</h2>
+
+    <form action="/{FirstName}/{LastName}/{Age}/{FavoriteColor}" method="POST">
+        <input type="text" name="FirstName" id="" placeholder="First Name">
+        <input type="text" name="LastName" placeholder="Last Name">
+        <input type="number" min="0" step="1" name="Age" placeholder="Age">
+        <input type="text" name="FavoriteColor" placeholder="Favorite Color">
+        <input type="submit" value="Send it!">
+    </form>
+    <h2>OR</h2>
+    <h2>Enter a user into the bar as localhost:5000/FirstName/LastName/Age/FavoriteColor</h2>
+</body>
+</html>

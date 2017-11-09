@@ -1,0 +1,10 @@
+/home/eric/programming/C#/week2/callingcard/bin/Debug/netcoreapp2.0/callingcard.deps.json
+/home/eric/programming/C#/week2/callingcard/bin/Debug/netcoreapp2.0/callingcard.runtimeconfig.json
+/home/eric/programming/C#/week2/callingcard/bin/Debug/netcoreapp2.0/callingcard.runtimeconfig.dev.json
+/home/eric/programming/C#/week2/callingcard/bin/Debug/netcoreapp2.0/callingcard.dll
+/home/eric/programming/C#/week2/callingcard/bin/Debug/netcoreapp2.0/callingcard.pdb
+/home/eric/programming/C#/week2/callingcard/obj/Debug/netcoreapp2.0/callingcard.csproj.CoreCompileInputs.cache
+/home/eric/programming/C#/week2/callingcard/obj/Debug/netcoreapp2.0/callingcard.AssemblyInfoInputs.cache
+/home/eric/programming/C#/week2/callingcard/obj/Debug/netcoreapp2.0/callingcard.AssemblyInfo.cs
+/home/eric/programming/C#/week2/callingcard/obj/Debug/netcoreapp2.0/callingcard.dll
+/home/eric/programming/C#/week2/callingcard/obj/Debug/netcoreapp2.0/callingcard.pdb

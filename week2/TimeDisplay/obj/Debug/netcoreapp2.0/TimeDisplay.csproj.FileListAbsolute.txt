@@ -1,0 +1,10 @@
+/home/eric/programming/C#/week2/TimeDisplay/bin/Debug/netcoreapp2.0/TimeDisplay.deps.json
+/home/eric/programming/C#/week2/TimeDisplay/bin/Debug/netcoreapp2.0/TimeDisplay.runtimeconfig.json
+/home/eric/programming/C#/week2/TimeDisplay/bin/Debug/netcoreapp2.0/TimeDisplay.runtimeconfig.dev.json
+/home/eric/programming/C#/week2/TimeDisplay/bin/Debug/netcoreapp2.0/TimeDisplay.dll
+/home/eric/programming/C#/week2/TimeDisplay/bin/Debug/netcoreapp2.0/TimeDisplay.pdb
+/home/eric/programming/C#/week2/TimeDisplay/obj/Debug/netcoreapp2.0/TimeDisplay.csproj.CoreCompileInputs.cache
+/home/eric/programming/C#/week2/TimeDisplay/obj/Debug/netcoreapp2.0/TimeDisplay.AssemblyInfoInputs.cache
+/home/eric/programming/C#/week2/TimeDisplay/obj/Debug/netcoreapp2.0/TimeDisplay.AssemblyInfo.cs
+/home/eric/programming/C#/week2/TimeDisplay/obj/Debug/netcoreapp2.0/TimeDisplay.dll
+/home/eric/programming/C#/week2/TimeDisplay/obj/Debug/netcoreapp2.0/TimeDisplay.pdb

@@ -1,0 +1,10 @@
+/home/eric/programming/C#/week1/Collections/bin/Debug/netcoreapp2.0/Collections.deps.json
+/home/eric/programming/C#/week1/Collections/bin/Debug/netcoreapp2.0/Collections.runtimeconfig.json
+/home/eric/programming/C#/week1/Collections/bin/Debug/netcoreapp2.0/Collections.runtimeconfig.dev.json
+/home/eric/programming/C#/week1/Collections/bin/Debug/netcoreapp2.0/Collections.dll
+/home/eric/programming/C#/week1/Collections/bin/Debug/netcoreapp2.0/Collections.pdb
+/home/eric/programming/C#/week1/Collections/obj/Debug/netcoreapp2.0/Collections.csproj.CoreCompileInputs.cache
+/home/eric/programming/C#/week1/Collections/obj/Debug/netcoreapp2.0/Collections.AssemblyInfoInputs.cache
+/home/eric/programming/C#/week1/Collections/obj/Debug/netcoreapp2.0/Collections.AssemblyInfo.cs
+/home/eric/programming/C#/week1/Collections/obj/Debug/netcoreapp2.0/Collections.dll
+/home/eric/programming/C#/week1/Collections/obj/Debug/netcoreapp2.0/Collections.pdb

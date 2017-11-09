@@ -1,0 +1,10 @@
+/home/eric/programming/C#/week1/Deck/bin/Debug/netcoreapp2.0/Deck.deps.json
+/home/eric/programming/C#/week1/Deck/bin/Debug/netcoreapp2.0/Deck.runtimeconfig.json
+/home/eric/programming/C#/week1/Deck/bin/Debug/netcoreapp2.0/Deck.runtimeconfig.dev.json
+/home/eric/programming/C#/week1/Deck/bin/Debug/netcoreapp2.0/Deck.dll
+/home/eric/programming/C#/week1/Deck/bin/Debug/netcoreapp2.0/Deck.pdb
+/home/eric/programming/C#/week1/Deck/obj/Debug/netcoreapp2.0/Deck.csproj.CoreCompileInputs.cache
+/home/eric/programming/C#/week1/Deck/obj/Debug/netcoreapp2.0/Deck.AssemblyInfoInputs.cache
+/home/eric/programming/C#/week1/Deck/obj/Debug/netcoreapp2.0/Deck.AssemblyInfo.cs
+/home/eric/programming/C#/week1/Deck/obj/Debug/netcoreapp2.0/Deck.dll
+/home/eric/programming/C#/week1/Deck/obj/Debug/netcoreapp2.0/Deck.pdb

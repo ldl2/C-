@@ -1,0 +1,54 @@
+I. talk about OOP and classes and objects for .netcore
+    A. Rather than functions 
+        1. look modular
+            a.multiple instances of one object created --instantiated
+    B. build blue print
+        1. can write class inside but lets add a file for a class.  n folder
+            a.Put it in the smae namespace
+                namespace whatourlastis{
+                    public class Vehicle(general){
+                        public int numPassenger;
+                        public double distance
+                            //put in constructor
+                        public Vehicle(num val = 0){
+                            num Passengers = val;
+                            distance = 0.0;
+                        }
+                            //methods do actiosn (often void don't need to retrun)
+                        public void Move(double miles){
+                            distance += miles;
+                        }
+                    }
+                }
+            b. put this in original program.class
+                Vehicle myCar = new Vehicle(2);
+                Vehicle bike = new Vehicle(1);
+                console.writeline(myCar.numpassenger);--> prints 4 from in class when hard coded now will do 2
+                console.writeline(myBike.numpassenger);
+                myBike.Move(1.3);
+                myCar.Move(4.5);
+                Console.Writeline(myBike.distance);
+
+II. OOP is key to C#.  used extensively by ASP.Net Core
+    A. key is class creation
+        1. defines how interact and howthey interact back.
+        2. blueprint of functions and properties that we want an instance of aka object
+        3. new keyword actually is calling constructor and needs function with same name as class
+        4. inputs to constructor are done when you instantiate the object as a parameter
+    B. methods tend to have things passed ot them
+        1. all methods need a return often void works
+        2. use method overloading to let paramater passing vary need 1 par or 2
+            a. often two with one existing will let us call the original.
+        3. called by dot notation and allows us to pass parameters ot it
+    C. Getters and setters!!!!!
+        1.process data before saving need to implement code
+            a. similarish to constructor but beign there leads to issues
+private _numPassengers = 5;
+public int numPassengers {
+ get { return _numPassengers }
+ set { _numPassengers = value; }
+}
+            b. doing bulit int get/set.  Allows easily accessing code for updaing of variable fields.
+                A) method of this is mildly obscured
+                B) commonly seen as below:
+public int numPassenger { get; set; }

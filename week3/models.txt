@@ -1,0 +1,70 @@
+I.  setup in candyman already allows to work...you need to insert in ViewStart and ViewIMports
+	A. Microsoft.AspNetcore.Mvc.TagHelpers
+		1. nneede brought in by candyman do with mine
+		2.medles.  User.cs
+			a. AspModels.Models <--subanmespace
+			public class User
+{
+	public string first_name{get;set;} same last_name and location
+}
+			b. replace what viewbag has been doing
+				A) pass
+				B) FIRSTcreate a user in controller use using aspmodels.models User userguy = new user();
+					1) var = string b/c string above
+					2)Viewbad.User = userguy
+					3) instead of viewbad on cshtml use @model (taghealper needed) AspModels.Models.User (model namespace and userobject)
+						a) in function return userguy
+							A. now instead of viewbag use Model. since Models.User we don't need User we returned userguy so that is @model.
+							B. need model class on page but can pass to second model with both types inside of it.... model bundlin
+				C) can go the other direction passing model from view to controller in form submission.
+					1) take in on form and takes in name attributes
+div class="form-group">
+	<label for"first_name"> First Name </label>
+	<input type="text" name="first_name" id="">
+
+[httppost]
+route("submit")
+public Iactionresult submit(user the User)
+{
+	return redirect to action("Index");
+
+}
+
+doesn't use model but we cna submit to form and accep object
+
+data annotation on model class
+
+on model class
+System.ComponentModel.DataAnnotations;
+
+now cna put in annotations on model
+
+[Requried]
+[minLength(3)]
+
+these are attributes which annotated what you need
+
+this is quick valudiation
+
+need on form page
+
+@model AspModels.Models.user
+
+now need attribute tages on form
+
+
+not action but asp-action=method (name of class on rotuing bbut not route)
+label asp-for and on input asp-for="first_name" instead of name attribute
+don't neeed text on lable that comes from model!!!! null values are empty strongs now check Model
+
+modelstate on isvalid and perform by this point
+
+
+span asp-validation-for="first_name" ></span>
+
+Display(Name="First Nmae")] does it ont he screen now
+
+can put in custome vlaidation error with (here if other inputs, ErrorMessage="asbdksuas")]
+
+
+view cna send a thing to pass "show", the User)

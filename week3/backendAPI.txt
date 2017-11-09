@@ -1,0 +1,83 @@
+I. backend api
+	A. FRONT END CALLS
+		1. decrease load on server
+		2. nonsensitive data
+	B. Backend 
+		1. sensitive access key
+		2. limit access to free api- calls per day or hour
+			a. can cache this fo all users
+		3. API returns data
+			a. JS object
+			b. arrays
+			c. XML data
+			d. means tailor methods
+EXAMPLE IN POKEAPI NEWFILE APICALLER.CS
+
+using System;
+using System.Net.Http;
+using System.Threading.Tasks;
+using System.Collections.Generic;
+using Newtonsoft.Json;
+ 
+namespace YourNamespace
+{
+    public class WebRequest
+    {
+        // The second parameter is a function that returns a Dictionary of string keys to object values.
+        // If an API returned an array as its top level collection the parameter type would be "Action>"
+        public static async Task GetPokemonDataAsync(int PokeId, Action<Dictionary<string, object>> Callback)
+        {
+            // Create a temporary HttpClient connection.
+            using (var Client = new HttpClient())
+            {
+                try
+                {
+                    Client.BaseAddress = new Uri($"http://pokeapi.co/api/v2/pokemon/{PokeId}");
+                    HttpResponseMessage Response = await Client.GetAsync(""); // Make the actual API call.
+                    Response.EnsureSuccessStatusCode(); // Throw error if not successful.
+                    string StringResponse = await Response.Content.ReadAsStringAsync(); // Read in the response as a string.
+                     
+                    // Then parse the result into JSON and convert to a dictionary that we can use.
+                    // DeserializeObject will only parse the top level object, depending on the API we may need to dig deeper and continue deserializing
+                    Dictionary<string, object> JsonResponse = JsonConvert.DeserializeObject<Dictionary<string, object>>(StringResponse);
+                     
+                    // Finally, execute our callback, passign it the response we got.
+                    Callback(JsonResponse);
+                }
+                catch (HttpRequestException e)
+                {
+                    // If something went wrong, display the error.
+                    Console.WriteLine($"Request exception: {e.Message}");
+                }
+            }
+        }
+    }
+}
+
+
+EOF EOF EOF EOF EOF EOF EOF
+		4. Async
+			a. new keywords
+				A) async
+				B) Task
+				C) await
+			b. makes it asynchronous
+				A) means runs on another thread-run at same time as main thread
+				B) API querying methods musy be async as well
+					1) this returns Task object...represents async process still running
+				C)
+YOURCONTROLLER.CS
+[HttpGet]
+[Route("pokemon/{pokeid}")]
+public IActionResult QueryPoke(int pokeid)
+{
+    var PokeInfo = new Dictionary<string, object>();
+    WebRequest.GetPokemonDataAsync(pokeid, ApiResponse =>
+        {
+            PokeInfo = ApiResponse;
+        }
+    ).Wait();
+    // Other code
+}
+EOF_____________________________________ remember instead of wait use aync in method somehow check notes from class
+

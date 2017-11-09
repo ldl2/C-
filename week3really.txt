@@ -1,0 +1,151 @@
+I. modelintro
+    A. dotnet new web
+    
+    services.AddSession():
+    
+    then
+    
+    services.AddMvc();
+    
+    
+    app.UseStaticFile();
+    app.UseSession
+    app.UseMVC
+    
+    
+    public IActionResult Index()
+    
+    return View();
+    
+    
+    views home index.cshtml
+    
+    html page
+    [Route("submit")]
+    [HttpPost]
+    
+    
+    public IActionResult Submission(string name, strng location)
+    
+    return redirecetToAction();
+    
+    
+    Form Action
+    
+    
+    
+    Model C# class for data we want to pass from views to controller and vise-versa
+    
+    namespace ModelIntro.Models
+    
+    
+    public class user
+    
+    public string name {get;set}
+    
+    public string location{get; set}
+    
+    
+    shoudl pass to changed location as class USEr from there
+    \\
+    public IactionResult Submission (user user)  class and instance of class, name can vary prolly?
+    
+    
+    so you can augment and add age or anything else within model.
+    
+    
+    
+    viewbag and view.Message= "sup with thi message) in controller
+    .message is variable?
+    
+    on html 
+    
+    
+    @viewBag.MEsage  like session but pass anything in it not like flash it sticks around.
+    input name attr shoudl case match model names
+    
+    
+    we can also use temp data.  Uses session only exists within 1 cycle aka flash messages basically.
+    
+    on controller
+    TempData["error"] = "BaAD THING";
+    
+    
+    now on view
+    
+    @TempData["error"]
+    
+    
+    Slicker method from validation.  this is  just a feature
+    
+    //all fields required
+    
+    list<string> errors = new list<string>();
+    if(user.name == null || user.location == null || user.age == 0)
+    {
+        errors.Add("all fields required);
+    }
+    
+    //user must be older than 65
+    
+    if(user.age<65)
+    {
+    errors.Add("user must be 65 or OLDER");
+    
+    TempData["errors"]=errors;
+    
+    @foreach(strong error in TempData["errors"])
+    {
+        <p>@error</p>
+    }
+    
+    }
+    
+    now @using system.collections.generic
+    
+    @if(TempData["errors" is List<string>>])
+    
+        now foreach....
+        
+        
+        
+use something called tag helpers look for documentation here
+
+
+design a model and a razor file to consume the file
+
+
+add to cshtml page
+
+
+@addTagHelper
+
+
+for name use span tag a label for name and asp for 
+
+asp-action ="submission
+
+
+annoated above class members in models
+[required] menas need this
+[Display(ame=name!!!")]
+
+[MinLen]
+
+
+
+say on view @model modelintro.Models.User  this is the user to 
+
+
+on controller (if(ModelState.IsValid)
+){
+return Json(new { lol="Sup"})
+}
+
+Return View("INdex")
+
+
+configure file association for cshtml
+
+
+files.associa

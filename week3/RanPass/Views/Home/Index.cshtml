@@ -1,0 +1,25 @@
+@using System;
+@using RanPass.Models;
+@model RanPass.Models.Randomi;
+@{
+    ViewData["Title"] = "Random Passcode Generator";
+}
+<body>
+    <div>
+        <p>
+            Random passcode (passcode # @ViewBag.count)
+        </p>
+       
+         
+    </div>
+    <div >
+        <form action="submit" method="post">
+            <div>
+                
+                <p>@ViewBag.rand</p>
+                <button type="submit">Generate</button>
+            </div>
+        </form>
+    </div>
+    
+</body>

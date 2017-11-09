@@ -1,0 +1,44 @@
+@using System.Collections.Generic
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Survey Form</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body>
+        <form action="submit/{name}/{location}/{language}/{comment}" method="post">
+            Your Name: <input type="text" name="name" placeholder="Your Name">
+            <br>
+            @if(TempData["errors"] is IEnumerable<string>)
+            {
+                @foreach(string error in TempData["errors"] as IEnumerable<string>)
+                {
+                    <p>@error</p>
+                }
+            }
+            Dojo Location: <select name="location">
+                <option value="Seattle">Seattle</option>
+                <option value="Los Angeles">Los Angeles</option>
+                <option value="Silicon Valley">Silicon Valley</option>
+                <option value="Washinton DC">Washinton DC</option>
+                <option value="Dallas">Dallas</option>
+                <option value="Chicago">Chicago</option>
+                <option value="Chicago">Chicago</option>
+            </select>
+            <br>
+            Favorite Language: <select name="language">
+                <option value="Javascript">Javascript</option>
+                <option value="Python">Python</option>
+                <option value="C#">C#</option>
+                <option value="Java">Java</option>
+            </select>
+            <br>
+            Comment (optional):
+            <textarea name='comment'></textarea>
+            <br>
+            <input type="submit" value="submit">
+        </form>
+    </body>
+</html>

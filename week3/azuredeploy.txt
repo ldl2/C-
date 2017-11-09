@@ -1,0 +1,47 @@
+I. Deploy with Azure
+	A. Azure platform deploy our .Net based web apps
+	B. Amazon AWS manually configure
+		1. done with Nginx
+		2. install packages to work
+	C. Azure handles most configuration for us
+		1. add IISIntegration to project
+			a. push it to Azure with Git integration
+			b. IIS= Internet Information Services - MIcrosoft web server software
+				A) go-to-server for ASP.NET deployment
+				B) windows based server that this integrates
+		2. dotnet add package Microsoft.AspNetCore.Server.IISIntegration
+		3. file needed called WEB.CONFIG
+<?xml version="1.0" encoding="utf-8"?>
+<configuration>
+    <system.webServer>
+        <handlers>
+        <add name="aspNetCore" path="*" verb="*" modules="AspNetCoreModule" resourceType="Unspecified"/>
+        </handlers>
+        <aspNetCore processPath="%LAUNCHER_PATH%" arguments="%LAUNCHER_ARGS%" stdoutLogEnabled="false" stdoutLogFile=".\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\logs\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\stdout" forwardWindowsAuthToken="false"/>
+    </system.webServer>
+</configuration>
+		4. in PROGRAM.CS
+using System.IO;
+using Microsoft.AspNetCore.Hosting;
+ 
+namespace YourNamespace
+{
+    public class Program
+    
+{        public static void Main(string[] args)
+        
+{            IWebHost host = new WebHostBuilder()
+                .UseKestrel()
+                .UseContentRoot(Directory.GetCurrentDirectory())
+                .UseStartip<Startup>();
+                // New Use method
+                .UseIISIntegration()
+                .Build();
+            host.Run();
+        }
+    }
+}
+II. Azure
+	A. Microsoft's Cloud hosting platform
+		1. builds deploys and managing applications and services
+	B. Must have or create Microsoft account

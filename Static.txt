@@ -1,0 +1,30 @@
+I. Static Files
+			A. Css, Javascript, and images
+			B.  Not compiled like .cs
+			C. By default can't get while running.
+	A. Add Configs
+		1. dotnet add package Microsoft.AspNetCore.StaticFiles -v=1.1
+		2. dotnet restore
+	B. We need to add to program.cs
+public void Configure(IApplicationBuilder app)
+{
+    app.UseStaticFiles();
+    // Other Use statements
+}
+	C. wwwroot folder
+		1.css folder inside
+
+	D.  inside index
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='utf-8'>
+        <title>Index</title>
+        // In this context '~' refers to the wwwroot folder
+        <link rel="stylesheet" href="~/css/style.css"/>
+    </head>
+    <body>
+        <h1>Hello ASP.NET Mvc!</h1>
+    </body>
+</html>
+

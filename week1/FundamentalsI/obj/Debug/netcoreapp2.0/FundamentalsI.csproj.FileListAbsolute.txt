@@ -1,0 +1,10 @@
+/home/eric/programming/C#/week1/FundamentalsI/bin/Debug/netcoreapp2.0/FundamentalsI.deps.json
+/home/eric/programming/C#/week1/FundamentalsI/bin/Debug/netcoreapp2.0/FundamentalsI.runtimeconfig.json
+/home/eric/programming/C#/week1/FundamentalsI/bin/Debug/netcoreapp2.0/FundamentalsI.runtimeconfig.dev.json
+/home/eric/programming/C#/week1/FundamentalsI/bin/Debug/netcoreapp2.0/FundamentalsI.dll
+/home/eric/programming/C#/week1/FundamentalsI/bin/Debug/netcoreapp2.0/FundamentalsI.pdb
+/home/eric/programming/C#/week1/FundamentalsI/obj/Debug/netcoreapp2.0/FundamentalsI.csproj.CoreCompileInputs.cache
+/home/eric/programming/C#/week1/FundamentalsI/obj/Debug/netcoreapp2.0/FundamentalsI.AssemblyInfoInputs.cache
+/home/eric/programming/C#/week1/FundamentalsI/obj/Debug/netcoreapp2.0/FundamentalsI.AssemblyInfo.cs
+/home/eric/programming/C#/week1/FundamentalsI/obj/Debug/netcoreapp2.0/FundamentalsI.dll
+/home/eric/programming/C#/week1/FundamentalsI/obj/Debug/netcoreapp2.0/FundamentalsI.pdb

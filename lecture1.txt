@@ -1,0 +1,275 @@
+I. Notes lecture 1.
+    A. best development enviroment -->VS code
+        1. .Net core is massive there
+        2. things to set up boilerplate
+            a. dotnet new (then opotions see console most the time)
+            b. assumes you are in the folder you want this in so make a new folder
+            c. Console.Writeline is print
+            d. usging system-->namespace
+                A)collection of classes part of standard library
+                B)console is a class
+                    1)System.console can be used if not bringing int he entire library
+                    2) everything is in a class and is OO language
+                    3) methods are static or nonstatic belong to the  class only or to object instatiated
+            C) return type void--> null
+                1) need some type of return put in all functions mustdefine return
+
+        3. Primitive types
+            a. numbers
+                A) javascript var x = 5
+                    1)tyoes
+                        a) int
+                            A-short, long, byte (types of ints can call all 4) 32, 16, bits 
+                        
+                        , float, double
+                        b) need single and souble quote specificity
+                            string "" char ' '
+                        c) bool is a byte equal 0 or 1 true and one are the same in anotehr c
+                        f5 runs code
+                        clcik red dot and stopps code executiont then can do interesting things it will show on debug a list of cool things inclduing local variable
+                        d) breakpoint where things are going wrong
+
+                        watchlists eval expression under here
+
+                        casting datatypes--->cast string to var
+                        size of shows bytes not bits times 4
+
+
+                        arrays collections
+                        defined by type
+
+                        int[] arr = integer array as var arr
+                        need new on line and size
+                        int[] arr new int[10]
+                        immutable type and size
+
+
+                        need another namespaceusing System.Collections.Generic;
+
+                        need a list or array with class gneeric type
+                        List<T> can make list of any type but need to say what they have in them not size
+                        List<int> mylist = new List<int>();
+                        can use object to have variety
+
+                        can use .Add(23) to lists to chang esize remove is able to find first instance fo 23.
+                        count is another it finds size whereas in array is .Length
+
+
+doing for loops
+
+for (int i=0; i<sizeofMyarr; i++)
+
+
+move in watchlist with play button on vs code
+
+foreach(int item in myINtLIst){
+    define to say what they are works on list and array
+
+
+}
+
+
+
+
+invokign function from static function ust be static.  is Greater than (int test, int control)  takes integer that is 
+
+if(test> control)
+    [return true;}  CURLYS NOT NEEDED WITH NE LINE
+return false;
+ console.Write(isGreaterTha(x, arr[1])))   doesn't create linebreak no line
+
+ List<string> words = new List <string>{
+     "apple",
+     "moon"
+ }
+
+
+ Dictionary<, string , int> players = new Dictionery<string, int>2 descriptions leads to  key value descriptions
+ Dictionary.Add("Mike Jordan", 23)
+ Dictionery.Add("lebron James", 23)
+
+
+ same for list can count
+
+
+ for(keyvaluePair<string int> items in players)  in watch can use items.Value or items.Key to get either value when system.Console.WriteLine(item);
+
+
+
+ more into writing funcitons and some fun values
+
+
+ List <string> favorite_words = new List<string>{
+     "apple",
+     "moon",
+     "Pizza",
+     "LOL"
+ };
+
+int MAX_SIZE = 10
+while(words.Count < MAX_SIZE)
+ System.COnsole.WriteLine("Enter a word");
+ List<string> words = new LIts<string>();
+ string newWord = Console.ReadLine();
+ words.Add(newWord);
+
+ ^textprompt lets put in
+
+ 
+ void ReadWordList (list<string> overall, List<string>favorites)
+ {
+     System.Console.WriteLine("");
+     foreach(string word in overall){
+         if(favorites.Contains(word)){
+             system.Console.Write($"{word}" (I like this one))  lets us pass in this workd to the console write line like .formate
+         }
+
+         System.Console.WriteLine(word)
+     }
+ }
+
+ bool isfavoriteword(variabels see above){
+    return overall.Contains(testword);
+ }
+
+
+
+ Constructs
+ high level of accessable public
+ define class and instatiated
+ best practices and what can go on a class
+
+ write to newguy.name can be writed too.
+
+ don't want to be public writen to and 
+
+ private internal can initialize and private is protected and not monkeyed with
+
+ called in person.cs in main can't call property read but not write property with getters and setters public string name getread {name} allows reading
+
+ get is read set is 
+
+ in using OOP.file that can pull in
+ methods called from instance of person or public method
+
+
+ static is of the class it is a class method
+ can't call it from instance of program only from
+
+
+ classic use is a count of all people
+
+ public static int Count=0;
+
+
+when constructor called Coun +=1;
+
+
+can only be used inside itself in this case person
+
+
+add things to person
+
+want inheretance
+
+person i sabstract
+
+
+
+interface ICanRun
+{
+    double Run(souble distance):
+
+    string Descriptor{
+
+
+        {get;}   <---needs to be in things i use icanrun in
+    }
+}
+
+
+
+class Athlete : Person <----means extend or inheretance, ICanRun <---- behind : but , is because multiple
+must give name to them
+
+private int _speed;
+private int _strength;
+
+CONSTRUTOR
+public Athlete(string _name, int speed, int strength) : base(_name)
+    push up with : case(_name) <---instance of parent class
+{
+    _speed = speed
+    _strength = strength
+}
+
+public double Run(double distance)
+{
+    return ditance/_speed
+}
+
+To make a collection of classes that can do things---> interface can interface with many clases
+
+
+
+
+from another class how can call functions
+public<-- many peopel can use this function athletes can but someone else might be able to accessable
+privte only class within definition
+default is internal only class and derived class can access
+
+
+class Palaypus : ICanRun
+
+{
+    private int _speed = 2;
+    public double Run (double distance)
+    {
+        System.Console.WriteLine("whoa I'm a running platypus")
+        Random rand new Random()
+        return distance/(rand.Next(1,4)* _speed);
+    }
+}
+
+
+inhertence form one class but interface from many things
+
+
+make collection of interface of things that can running
+this mkaes like races determined
+
+lets pull together
+
+class contest{
+    public void Race(List<ICanRun> contestants, double distance)
+    double fastestTime = Double.MaxValue
+    ICanRun winner = null
+    foreach(ICanRun)
+    contestant.Run(distance):
+    if(fastestTime <time)
+    {
+        fastesttime = time;
+        winner = contestant;
+    }
+}
+
+
+instantiated then
+list<ICanRun> doods = new List<ICanRun>():
+    add instantiates too list
+    doods.Add(name)
+
+    Constest game = new Contest()
+
+    game.Rave(doods, 100)  list anme and distance
+
+    string interpelation
+
+    ($" a rave was run and the inner was {winner} with the fastest time of {fastesttime})'
+
+
+    grab class from another class and static v instance
+
+
+
+    and name in interface

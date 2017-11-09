@@ -1,0 +1,56 @@
+I. linq is simple
+    A. find methods and make work with data sets
+        1. most interesting is way it works
+        2. introduce interesting things on lnaguage
+    B. query languge language integrted queries
+        1. works on enumerated types ienumerated types
+        2. int[] num = new int[] {23,344,234,1,3,342,342}
+            List<int> numList = new List<int>();
+            foreach(int num in nums)
+            {
+                if(num%2==0)
+                    numList.Add(num);
+
+            }
+
+            not var IEnumerable<int>var filtered = from num in nums
+             where num%2==0 
+             select num;  SQL version
+            filtered.ToArray(); moves from enumerated type to array.  
+
+            This is  awrapper for linq method calls
+
+            We start on where<TSource> Method func<TSource>called on type and can pass function
+
+
+            var magic = nums.Where(n => n%2 == 0)arrow syntactic wrapper for function passed in takes iniital value n returns all to some statement
+            takes all in this and retruns same as above nums is n and . notation
+
+            called lamda it does filtration that says input to output
+
+
+            What does func look like
+            Func<int, bool> isEven = delegate(int num)
+            {
+                return num%2==0;
+            } basically real code that implies can use if put outside of main.
+
+            var avg = nums.Average();
+            var max = nums.Max();
+
+            var numsgreaterthanav = nums.where(num => num > nums.Average()).First()   grabs first value greater than list average.
+            can also use ORderBy() better for classes instead use sort here.
+
+            or can ust .Sort()
+
+    house class used to increment forward in our linq
+    .Where(thronie +> thronie.Age > 30) GoT chars
+
+    doing a join house name
+    var result = myThronies.Join(
+        houses, t => t.HouseID,
+        h=>h.HouseID,
+        (h, t) =>
+        {
+                return $"{t.name} of house {h.houseName}";
+        });

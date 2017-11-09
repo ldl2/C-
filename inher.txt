@@ -1,0 +1,391 @@
+I. Inheritance
+    A. Specialixing for different vehicles iws an example
+        1.Bike car boat now inherit vehicle.  Gains all the properties and method os parent class
+            a.  Can only inheret from one other class
+            b. passing to next generation is called the inheritance chain
+
+public class Vehicle
+{
+    public int NumPassengers { get; set; }
+    public double Distance { get; set; }
+    //Constructors can be overloaded 
+    //The first maybe being for a new vehicle
+    public Vehicle(int val)
+    {
+        NumPassengers = val;
+               Distance = 0.0;
+    }
+    //The second for preowned with milage already
+    public Vehicle(int val, double odo)
+    {
+        NumPassengers = val;
+        Distance = odo;
+    }
+    //Method can also be overloaded for handling different parameters
+    public int Move(double miles)
+    {
+        Distance += miles;
+        return (int)Distance;
+    }
+    //If a boolean is included in this version of the method call
+    //it may be measuring in km rather than miles.
+    public int Move(double miles, bool km)
+    {
+        //Convert the KM measurement to miles
+        if (km == true)
+        {
+            miles = miles * 0.62;
+        }
+        Distance += miles;
+        return (int)Distance;
+    }
+}
+
+
+Previous is above not car
+
+public class Car : Vehicle
+{
+    public int NumberOfWheels = 4;
+    public string Condition;
+    public Car() : base(5)
+    {
+        Condition = "New";
+    }
+    public Car(double odo) : base(5, odo)
+    {
+        Condition = "Used";
+    }
+}
+public class Program
+{
+    public static void Main(string[] args)
+    {
+        Car oldCar = new Car(167263);
+        Console.WriteLine($"Car Condition: {oldCar.Condition}");
+        Console.WriteLine($"Max occupancy: {oldCar.NumPassengers}");
+        oldCar.Move(6);
+        Console.WriteLine($"Current Milage: {oldCar.Distance} miles");
+        Car myCar = new Car();
+        //Remember there are different forms of string construction
+        //but they all accomplish the same goal so it is simply preference
+        Console.WriteLine($"Car Condition: {myCar.Condition}");
+        Console.WriteLine("Max occupancy: {0}", myCar.NumPassengers);
+        myCar.Move(26.6);
+        Console.WriteLine("Current Milage: " + myCar.Distance + " miles");
+    }
+}
+
+
+        c. |Base keyword- dont to pass variable to parent class' Constructors
+            A)Keeps the old while adding new.
+        d. to change functionality
+public class Vehicle
+{
+    //All past code for the Car Vehicle
+    //should still be present
+    public void GetInfo()
+    {
+        Console.WriteLine("This is just a basic Vehicle!");
+        Console.WriteLine($"Currently has travelled {Distance} miles");
+    }
+}
+public class Car : Vehicle
+{
+    //All past code for the Car Class
+    //should still be present
+    public new void GetInfo()
+    {
+        Console.WriteLine($"Car Condition:{Condition}");
+        Console.WriteLine($"Max occupancy: {NumPassengers}");
+        Console.WriteLine($"Current Milage: {Distance} miles");
+    }
+}
+public class Program
+{
+    public static void Main(string[] args)
+    {
+        Vehicle obj1 = new Vehicle(5);
+        Car obj2 = new Car(5);
+        obj1.GetInfo();
+        obj2.GetInfo();
+    }
+}
+
+
+avoiding complete removal with one WriteLine
+
+public class Vehicle
+{
+    //All past code for the Car Vehicle
+    //should still be present
+    public void GetInfo()
+    {
+        Console.WriteLine($"Max occupancy: {NumPassengers}");
+        Console.WriteLine($"Current Milage: {Distance} miles");
+    }
+}
+public class Car : Vehicle
+{
+    //All past code for the Car Class
+    //should still be present
+    public new void GetInfo()
+    {
+        //This line will call the parent's version of this method
+        //first then add any additional code to it!
+        base.GetInfo();
+        Console.WriteLine($"Car Condition:{Condition}");
+    }
+}
+public class Program
+{
+    public static void Main(string[] args)
+    {
+        Vehicle obj1 = new Vehicle(5);
+        Car obj2 = new Car(5);
+        obj1.GetInfo();
+        obj2.GetInfo();
+    }
+}
+
+
+
+so pretty much dot notation on base.....
+
+    B. Acessibility
+        1. Difference on public and private
+        2. also public methods are inherited
+        3. private not
+            a. must use protected to inheret a private
+    C. Polymorphism
+        1. instantiate instance of child class and store in a variable of parent type
+
+public class Program
+{
+    public static void Main(string[] args)
+    {
+        Parent First = new Parent();
+        Parent Second = new Child();
+        Parent Third = new GrandChild();
+  
+        First.Speak();
+        // Will write "I am a parent"
+        Second.Speak();
+        // Will write "I am a parent"
+        Third.Speak();
+        // Will write "I am a parent"
+        (Child)Second.Speak();
+        // Will write "I am a child"
+        (Child)Third.Speak();
+        // Will write "I am a Child"
+        (GrandChild)Third.Speak();
+        // Will write "I am a grandchild"
+ 
+        (Child)First.Speak();
+        // THIS WILL FAIL!! Cannot cast down the inheritance chain
+    }
+}
+public class Parent
+{
+    public void Speak()
+    {
+        Console.WriteLine("I am a parent");
+    }
+}
+public class Child : Parent
+{
+    public new void Speak()
+    {
+        Console.WriteLine("I am a child");
+    }
+}
+public class GrandChild : Child
+{
+    public new void Speak()
+    {
+        Console.WriteLine("I am a grandchild");
+    }
+}
+
+
+Treated as type unless we cast. parent class is the one executed.  Human cast from object?
+
+public class Program
+{
+    public static void Main(string[] args)
+    {
+        // THIS WILL NOT WORK!!!!!
+        Child First = new Parent();
+    }
+}
+
+
+II. Object Abstraction
+    A. more specific things are able to be treated as the more generic.  
+        1. lists do this so do classes treated as parent.
+            a. both require casting back to the original
+    B. Interfaces
+        1. To deal with multiple inheritances
+        2.  This is about grouping types
+        3. Defines actions and proeprties a class MUST have.
+            a. only must exist not how
+public interface CanRun
+{
+    // Anything that implements the CanRun interface must 
+    // implement a 'Run()' method that returns an integer.
+    int Run();
+}
+// Therefore, this class must have a Run() function in it!
+public class Goat : CanRun
+{
+    public int Run()
+    {
+       Console.WriteLine("I'm a goat, and you betcha I can run....");
+       return 5;
+    }
+}
+// You can have inheritance as well as interfaces at the same time! 
+public class Bird
+{
+    // Most birds don't run!!!
+}
+// An ostrich, however, is a bird AND it runs!
+// Note: always specify inheritance first, followed by interfaces (there may be multiple)
+public class Ostrich: Bird, CanRun
+{
+    public int Run()
+    {
+        Console.WriteLine("I'm a running bird...crazy, right?");
+        return -16;
+        // Why does an Ostrich return -16 for this function?
+        // Scientists Have been working on this very problem for years. Let's move on. 
+    }
+}
+// Both can now be treated as objects of type CanRun
+CanRun obj1 = new Ostrich();
+CanRun obj2 = new Goat();
+       
+        4. One example so far is IEnumerable, defines collections
+    C. Abstract classes
+        1. like a class built only to inheret from
+        2. cannot instantiate except from inherited
+public abstract class Animal
+{
+    public string[] characteristics {get; set;}
+    
+    //No reason making the constructor public since it can not be
+    //Invoked other than from a class inheriting from this class
+    protected Animal()
+    {
+        characteristics = { 
+              "Multicellular", 
+              "Eukaryotic Cell Structure",
+              "Specialized Tissues",
+              "Heterotrophs",
+              "Nervous System" };
+    }
+}
+
+III. Language integrated Queries
+    A. LINQ
+    B. results are often enumerable collections
+    C. var keywoard usuauly used with linq
+Product[] products = {
+     new Product { Name = "Jeans", Category = "Clothing", Price = 24.7 },
+     new Product { Name = "Socks", Category = "Clothing", Price = 8.12 },
+     new Product { Name = "Scooter", Category = "Vehicle", Price = 99.99 },
+     new Product { Name = "Skateboard", Category = "Vehicle", Price = 24.99 },
+};
+//At the top of the code
+using System;
+using System.Collections.Generic;
+using System.Linq;
+//*****
+//Rest of program code
+//*****
+var foundProducts = from match in products
+                    orderby match.Price descending
+                    select new { match.Name, match.Price };
+
+    D. There are many query syntax words
+        1. can be performed with dot notation syntax
+https://www.codeproject.com/KB/linq/LINQ-DLINQ-XLINQ-PLINQ/qexp.png
+            a. .Where() 
+            does filtering with lambda fx
+            b.  urns lamdab on all collection and returns boolean
+List<string> StringList = new List<string> {
+                              "apple",
+                              "banana",
+                              "carrot",
+                              "asparagus",
+                              "tomato",
+                              "artichoke"
+                          };
+IEnumerable<string> TransformedList = StringList.Where( str => str[0] == "a")
+// TransformedList == {"apple", "asparagus", "artichoke"}
+
+IEnumerable<string> TransformedList = StringList
+    .Where( str => {
+        if(str[0] == "a")
+        {
+            return true;
+        }
+        return false;
+    });
+            c. .Select()
+             accepta lamda function that trnasforms item returning new colelction
+List<string> StringList = new List<string> {
+                              "apple",
+                              "banana",
+                              "carrot",
+                              "asparagus",
+                              "tomato",
+                              "artichoke"
+                          };
+IEnumerable<char> TransformedList = StringList.Select( str => str[0])
+// TransformedList == {'a', 'b', 'c', 'a', 't', 'a'}
+            d. .Join()
+                combine two collections values
+Join accepts four arguments:
+
+The second collection we want to join with
+A lambda function that defines how the products from the first collection are compared
+A lambda function that defines how the products from the second collection are compared
+A lambda function that defines how the matching values are combined
+
+List<string> Food = new List<string> {
+                              "apple",
+                              "banana",
+                              "carrot",
+                              "fudge",
+                              "tomato"
+                          };
+                           
+List<string> Adjective = new List<string> {
+                              "tasty",
+                              "capital",
+                              "best",
+                              "typical",
+                              "flavorful",
+                              "toothsome"
+                          };
+ 
+// This Join looks at  each foodItem and combines it with each adjective that has the same first character
+List<string> Combo = Food.Join(Adjective, 
+                               foodItem => foodItem[0],
+                               adjective => adjective[0],
+                               (foodItem, adjective) =>
+                               {
+                                   return adjective + " " + foodItem;
+                               }).ToList();
+ 
+//Combo == "best banana",
+//         "capital carrot",
+//         "flavorful fudge",
+//         "tasty tomato",
+//         "typical tomato",
+//         "toothsome tomato"
+ 
+// Notice that apple is not in the combination collection because it does not match an adjective
+SCREEN SHOT those groups or save pictures
+

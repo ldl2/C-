@@ -1,0 +1,10 @@
+I. ASP Core MVC
+    A. review and introduce json response.  Out response review and redirect.  iactionresutls interphase
+    B. iactionresutls to return json built into mvc library
+        a. segways into ajax naturally
+        b.
+
+
+        json view help pretty json data chrome
+        ajax from tmeplate/view to hit some route and return json and can accept result of request and manipulate in some markup as wish
+        

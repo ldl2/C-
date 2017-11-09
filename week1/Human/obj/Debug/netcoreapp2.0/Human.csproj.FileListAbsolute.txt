@@ -1,0 +1,10 @@
+/home/eric/programming/C#/week1/Human/bin/Debug/netcoreapp2.0/Human.deps.json
+/home/eric/programming/C#/week1/Human/bin/Debug/netcoreapp2.0/Human.runtimeconfig.json
+/home/eric/programming/C#/week1/Human/bin/Debug/netcoreapp2.0/Human.runtimeconfig.dev.json
+/home/eric/programming/C#/week1/Human/bin/Debug/netcoreapp2.0/Human.dll
+/home/eric/programming/C#/week1/Human/bin/Debug/netcoreapp2.0/Human.pdb
+/home/eric/programming/C#/week1/Human/obj/Debug/netcoreapp2.0/Human.csproj.CoreCompileInputs.cache
+/home/eric/programming/C#/week1/Human/obj/Debug/netcoreapp2.0/Human.AssemblyInfoInputs.cache
+/home/eric/programming/C#/week1/Human/obj/Debug/netcoreapp2.0/Human.AssemblyInfo.cs
+/home/eric/programming/C#/week1/Human/obj/Debug/netcoreapp2.0/Human.dll
+/home/eric/programming/C#/week1/Human/obj/Debug/netcoreapp2.0/Human.pdb

@@ -1,0 +1,28 @@
+I. Submitting Forms
+	A. no special front end work.  Do as HTML forms would normally
+	B. Backend accepts submission
+		1. caught in targeted method
+
+
+Method.cshtml
+<form action="method" method="post">
+    <input type="text" name="TextField"/>
+    <input type="number" step="1" name="NumberField"/>
+    <button type="submit">Submit</button>
+</form>
+
+Your Controller.cs
+[HttpPost]
+[Route("method")]
+public IActionResult Method(string TextField, int NumberField)
+{
+    // Do something with form input
+}
+		2. parameters in method must match
+
+	C. on rendering there it is able to pass to <h1> @ViewBag.Example </h1>
+		1. can also do logic here but don't make it a goal centralize on backend.
+@{
+    string LocalString = ViewBag.Example + " Good to see you!";
+}
+<h1>@LocalString</h1>

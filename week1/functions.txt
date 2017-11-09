@@ -1,0 +1,114 @@
+Functions A function is a name that is related to a block of 
+code we can execute. To execute this code, we invoke it. A 
+function is invoked when we call its name, pass along the 
+necessary input, it will execute the block of code and 
+usually give us back some kind of output. Some functions take 
+no input and some functions have no output. Even though a 
+function doesn't return anything, it can do something inside 
+the block of code that alters a program. For example: 
+
+public static void SayHello() {
+    Console.WriteLine("Hello how are you doing today?");
+}
+
+Copy Here we defined a function with the accessibility level 
+of public, declared as a static member, has a return type of 
+void, declared its name to be SayHello, and specified that 
+this function does not take in any arguments. When this 
+function is invoked, it will print a greeting to the screen 
+but it will not return anything. Accessibility Levels To walk 
+through these various parts the accessibility level controls 
+what other parts of the program have access to invoke the 
+function. Public specifies that the function is fully 
+accessible from any part of the program that can see the file 
+it is written in. Private restricts a function to only be 
+called from within the same scope as its definition. If we 
+leave out the accessibility keyword, functions default to 
+being private. We will be getting more in depth into function 
+accessibility and the other types that exists out there, but 
+for now it is safe to assume every function we will be 
+creating can be prefixed with the public keyword. Static? The 
+next part of this is the single optional keyword of static. 
+Static controls how we can invoke a function in our code; a 
+static function can be called within the scope of its 
+definition or by calling it on the class it's defined in, 
+while a non-static method has to be called on an instance of 
+an object. We'll talk more about instantiating objects when 
+we learn about Classes, for now all of our functions will be 
+static. Invoking a Function When we want to invoke this 
+function in a .NET console application we need to be aware of 
+a few things. First, the function must be placed outside of 
+the Main function, but still inside the Program class. This 
+is because C# code can only see other code written within the 
+same class by default. C# does not support embedding of 
+functions so the new function we add must be separate.  Once 
+built however the new function can be run by calling its name 
+inside the Main function and passing in the necessary input. 
+In this case, the function requires no input so we won't pass 
+anything in. This function doesn't return anything, but it 
+will have a side effect of printing something to the Terminal 
+Console. 
+
+
+using System; 
+using System.Collections.Generic; 
+namespace ConsoleApplication 
+{
+    public class Program
+    {
+        public static void SayHello()
+        {
+            Console.WriteLine("Hello how are you doing 
+today?");
+        }
+        public static void Main(string[] args)
+        {
+            SayHello();
+        }
+    }
+}
+
+Copy Function Parameters We define what kind of input we want 
+by declaring parameters. Let's declare a parameter named 
+"name" that will be of Type string. Our function will still 
+not return anything but its output will be a little bit more 
+personalized. Note that we need to not only declare a 
+parameter name but also specify the parameter's type. public 
+static void SayHello(string name) {
+    Console.WriteLine("Hello, {0}, how are you doing today?", 
+name);
+}
+Copy We can invoke this function by calling its name and 
+passing in the correct number of arguments. 
+SayHello("Andrew"); Copy Wait, what's the difference between 
+a parameter and an argument? These two words get mixed up a 
+lot in programming. In this example, "name" is a parameter 
+while "Andrew" is an argument. We define parameters. We pass 
+in arguments into functions. Default Parameter Values It's 
+good to have default parameter values sometimes. Let's 
+revisit our SayHello function. If we don't know the name of 
+the person that we are greeting we can have a default value 
+to go with. For example, we can just say "Hey, buddy." public 
+static void SayHello(string name = "buddy") {
+    Console.WriteLine("Hey " + name);
+}
+// We can call it without providing any arguments and the 
+default value will be used... SayHello(); // ...or we can 
+call it with an argument and that argument's value will be 
+used SayHello("Yoda"); Copy Return The final piece of a 
+function definition is the return type. When we write 
+functions in C# we must specify what datatype, if any, the 
+function will return. By now you've surely noticed the word 
+"void" in all of our function definitions. Void is a keyword 
+that signifies that the function has no return. In many 
+cases, we would want our function to return some sort of 
+value that we can use later in our program. Let's modify our 
+sayHello function and observe the differences: public static 
+string SayHello(string name = "buddy") {
+    return $"Hey {name}";
+}
+string greeting; greeting = SayHello(); 
+Console.WriteLine(greeting); Copy This version of SayHello 
+specifies string as the return type. We call SayHello and 
+store the value it returns in the greeting variable, which is 
+also of type string.

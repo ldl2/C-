@@ -1,0 +1,10 @@
+/home/eric/programming/C#/week2/CRUD/bin/Debug/netcoreapp2.0/CRUD.deps.json
+/home/eric/programming/C#/week2/CRUD/bin/Debug/netcoreapp2.0/CRUD.runtimeconfig.json
+/home/eric/programming/C#/week2/CRUD/bin/Debug/netcoreapp2.0/CRUD.runtimeconfig.dev.json
+/home/eric/programming/C#/week2/CRUD/bin/Debug/netcoreapp2.0/CRUD.dll
+/home/eric/programming/C#/week2/CRUD/bin/Debug/netcoreapp2.0/CRUD.pdb
+/home/eric/programming/C#/week2/CRUD/obj/Debug/netcoreapp2.0/CRUD.csproj.CoreCompileInputs.cache
+/home/eric/programming/C#/week2/CRUD/obj/Debug/netcoreapp2.0/CRUD.AssemblyInfoInputs.cache
+/home/eric/programming/C#/week2/CRUD/obj/Debug/netcoreapp2.0/CRUD.AssemblyInfo.cs
+/home/eric/programming/C#/week2/CRUD/obj/Debug/netcoreapp2.0/CRUD.dll
+/home/eric/programming/C#/week2/CRUD/obj/Debug/netcoreapp2.0/CRUD.pdb

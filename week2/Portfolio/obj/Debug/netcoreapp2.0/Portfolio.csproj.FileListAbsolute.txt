@@ -1,0 +1,10 @@
+/home/eric/programming/C#/week2/Portfolio/obj/Debug/netcoreapp2.0/Portfolio.csproj.CoreCompileInputs.cache
+/home/eric/programming/C#/week2/Portfolio/obj/Debug/netcoreapp2.0/Portfolio.AssemblyInfoInputs.cache
+/home/eric/programming/C#/week2/Portfolio/obj/Debug/netcoreapp2.0/Portfolio.AssemblyInfo.cs
+/home/eric/programming/C#/week2/Portfolio/bin/Debug/netcoreapp2.0/Portfolio.deps.json
+/home/eric/programming/C#/week2/Portfolio/bin/Debug/netcoreapp2.0/Portfolio.runtimeconfig.json
+/home/eric/programming/C#/week2/Portfolio/bin/Debug/netcoreapp2.0/Portfolio.runtimeconfig.dev.json
+/home/eric/programming/C#/week2/Portfolio/bin/Debug/netcoreapp2.0/Portfolio.dll
+/home/eric/programming/C#/week2/Portfolio/bin/Debug/netcoreapp2.0/Portfolio.pdb
+/home/eric/programming/C#/week2/Portfolio/obj/Debug/netcoreapp2.0/Portfolio.dll
+/home/eric/programming/C#/week2/Portfolio/obj/Debug/netcoreapp2.0/Portfolio.pdb

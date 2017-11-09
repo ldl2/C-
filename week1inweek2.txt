@@ -1,0 +1,15 @@
+I debug
+    A. Omnisharp and VS Code use a debugger.
+        1. step through code in states
+        2. process for handling runtime and logical errors
+            a. use Omnisharp on basic 13.
+            b.  new porject need vscode file
+                a. once filled out can go to bug button
+                b. set breakpoitnon a line to pause and click in gutter
+                c. buttons get to diff points play goes as normal til next breakpoint
+                d. step into is go one layer into it,
+                e. steop out of will let it go back to main
+                f. reset
+                g. steop
+                h. watch allows expression to watch over
+                    A) locals may change but always watching it so now it is something else or failed

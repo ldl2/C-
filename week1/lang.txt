@@ -1,0 +1,291 @@
+codI. C#
+    A. In AS.NET Core we use C#
+        1. set apart from other languages
+            a. compliing give analysis of fource code
+                A) versus interpreted code that recieves no attention until it runs
+                B)all sorts of checks to catch bugs that would show up at excution
+                C) less likely to explode but follows rules
+                    1) one time event to compile now can run on any platform
+            b. Static typing
+                A) common for compiled languages   
+                B) language needs to know type associeated with variable before defining it.  
+                    1)Avoids placing the wrong info into it latter e.g int x =
+                    2) lots of details tedious but ready on time.
+                C) mature and modern features grabage collection, generics, implicit variable, async OOP and nonverbose easy to read
+    B. variables
+        JS | C++
+        1. var name = "Tim"; | string name = "Todd";
+        2/ var age = 30; | int age =32;
+        3. var height = 1.905; | double height 1.875;
+        4. var blueEyed = false; | bool blueEyed = true;
+        5. C# if we forget a var type the compiler with throw errors
+            a. will also recognize mismatch- memory size i important too!
+
+
+Name	System Class Name	Description	Bitsize	Example
+int	Int32	An integer value between -2,147,483,648 and 2,147,483,647	32-bits	40,000
+long	Int64	An integer between -9,223,372,036,854,775,808 and 9,223,372,036,854,775,807	64-bits	3,000,000,000
+short	Int16	An integer between -32,768 and 32,767	16-bits	342
+float	Single	A floating point number between -3.402823e38 and 3.402823e38	32-bits	3.14159
+double	Double	A floating point number between -1.79769313486232e308 and 1.79769313486232e308. Allows more precision than a float.	64-bits	3.1415926535897932
+char	Char	One unicode character	16-bits	'g'
+bool	Boolean	A true or false value	8-bits	true
+string	String	An indexable sequence of characters	variable	"Hello World!"
+object	Object	The base type that all classes inherit from. A generic way to treat every memory space.	variable	Pretty much everything!
+
+
+        6. Type Converstions.
+            a.double to ints we can cast.  implicit and explicit
+                A) Implicit Casting
+
+                    1) direct convert without info lost
+                    2) lower to higher precision
+                    3) won't work on string to int for example
+
+int IntegerValue = 65;
+double DoubleValue = IntegerValue;
+
+                B) explicit Casting
+                    1) done with appropriate casting 
+                    2) can break execution
+                    3) works with all datatypes
+
+double DoubleValue = 3.14159265358;
+int IntegerValue = (int)DoubleValue;
+// IntegerValue == 3
+
+real difference move between memory or fresh set and remove.
+
+
+
+II. writing to console
+    A. Set with dotnet new
+        1.Console.WriteLine() function provides from system library for string output.
+            a. works with nonstrong variale is ToStrong method exists
+            b. mixing strings and other vairiables can be accomplished with tokens or concatenation
+                Console.WriteLine("The {0} cow, jumped over the {1}, {2} times!", "brown", "Moon", 7); <---start at 0 and puts in
+                Console.WriteLine(10 + " Chickens attacked " + name);
+            c. insdie curly we can put in curly brackets can do math
+
+III.Conditionals
+    A. execute by specific logical Conditionals
+    format
+
+int rings = 5;
+if (rings >= 5)
+{
+    Console.WriteLine("You are welcome to join the party");
+}
+else if (rings > 2)
+{
+    Console.WriteLine("Decent...but {0} rings aren't enough", rings);
+}
+else
+{
+    Console.WriteLine("Go win some more rings");
+}
+
+        1. note don't need curlys with simple sintax with one line but good habit.
+        2. note else if syntax
+        3. comparisons <, >, <=, >=, ==, !=
+        4. equality v identity
+             can be equal without being in the same place in the memory (identity)
+        5. Operators
+            &&, ||, ! (and or not)
+
+IV. Loops
+    1. computres store and repeat well
+        a. for used with a number of repeats while with unknown
+
+// loop from 1 to 5 including 5
+for (int i = 1; i <= 5; i++)
+{
+    Console.WriteLine(i);
+}
+// loop from 1 to 5 excluding 5
+for (int i = 1; i < 5; i++)
+{
+    Console.WriteLine(i);
+}
+int start = 0;
+int end = 5;
+// loop from start to end including end
+for (int i = start; i <= end; i++)
+{
+    Console.WriteLine(i);
+}
+// loop from start to end excluding end
+for (int i = start; i < end; i++)
+{
+    Console.WriteLine(i);
+}
+
+
+seperate into intialization, condition, and incrementation seperated by semicolon
+
+    2. While looping
+int i = 1;
+while (i < 6)
+{
+    Console.WriteLine(i);
+    i = i + 1;
+}
+
+
+V. Random Values
+    A. Random is part of system.
+        a first create random object
+        Random rand = new Random().  type name = new function
+        b. use .Next to produce consecutive random values
+
+Random rand = new Random();
+for(int val = 0; val < 10; val++)
+{
+    //Prints the next random value between 2 and 8
+    Console.WriteLine(rand.Next(2,8));
+}
+
+for(int val = 0; val < 10; val++)
+{
+        Random rand  = new Random();
+    //This will print the same generated value each time!!!
+    Console.WriteLine(rand.Next(2,8));
+}
+
+
+For one in loop
+
+VI. Arrays
+    A. we often combine related values into a collection under a single variable
+        1. 1 way is arrays <--numerically indexed collections of values
+            a. Arrays have immutable length
+
+// Declaring an array of length 5, initialized by default to all zeroes
+int[] numArray = new int[5];
+// Declaring an array with pre-populated values
+// For Arrays initialized this way, the length is determined by the size of the given data
+int[] numArray2 = {1,2,3,4,6};
+
+
+            b.  you can give type name, then put something into name needs new type again then the list {}1235651
+                A) positioning
+
+    B can get 2D arrays
+
+// Multidimensional array declaration
+// This example contains 3 arrays -- each of these is length 2 -- all initialized to zeroes.
+int [,] array2D = new int[3,2];
+// This is equivalent to:
+//  int [,] array2D = new int[3,2]  {  { 0,0 }, { 0,0 }, { 0,0 } }; 
+// This example has 2 large rows that each contain 3 arrays -- and each of those arrays is length 4.
+int[,,] array3D = new int[2,3,4] 
+    {
+        {  { 45,1,16,17 }, { 4,47,21,68 }, { 21,28,32,76 }  },
+        {  { 11,0,85,42 }, { 9,10,14,96 }, { 66,99,33,12 }  }
+    };
+// Directly accessing a multidimensional array
+Console.WriteLine(array2D[0,1]);   // prints 0
+Console.WriteLine(array3D[1,0,3]); // prints 42
+
+    C. Jagged array
+
+// Jagged array declaration
+int[][] jaggedArray = new int[3][];
+jaggedArray[0] = new int[5];
+jaggedArray[1] = new int[4]; 
+jaggedArray[2] = new int[2];
+int[][] jaggedArray2 = new int[][] {
+    new int[] {1,3,5,7,9},
+    new int[] {0,2},
+    new int[] {11,22,33,44}
+};
+// Short-hand form
+int[][] jaggedArray3 = {
+    new int[] {1,3,5,7,9},
+    new int[] {0,2},
+    new int[] {11,22,33,44}
+};
+// You can even mix jagged and multi-dimensional arrays
+int[][,] jaggedArray4 = new int[3][,] 
+{
+    new int[,] { {1,3}, {5,7} },
+    new int[,] { {0,2}, {4,6}, {8,10} },
+    new int[,] { {11,22}, {99,88}, {0,9} } 
+};
+// Working through each array in a jagged array
+foreach(int[] innerArr in jaggedArray){
+    Console.WriteLine("Inner array length is {0}", innerArr.Length);
+}
+// Accessing a jagged array
+Console.WriteLine(jaggedArray2[0][1]); // 3
+Console.WriteLine(jaggedArray3[2][3]); // 44
+
+
+using System.Collections.Generic;
+VII generic lists
+    A. gneeric lists are more like arrays of JS.
+        A dynamically sized
+//Initializing an empty list of Motorcycle Manufacturers
+List<string> bikes = new List<string>();
+//Use the Add function in a similar fashion to push
+bikes.Add("Kawasaki");
+bikes.Add("Triumph");
+bikes.Add("BMW");
+bikes.Add("Moto Guzzi");
+bikes.Add("Harley Davidson");
+bikes.Add("Suzuki");
+//Accessing a generic list value is the same as you would an array
+Console.WriteLine(bikes[2]); //Prints "BMW"
+Console.WriteLine("We currently know of {0} motorcycle manufacturers.", bikes.Count);
+
+//Using our array of motorcycle manufacturers from before
+//we can easily loop through the list of them with a C-style for loop
+//this time, however, Count is the attribute for a number of items.
+Console.WriteLine("The current manufacturers we have seen are:");
+for (var idx = 0; idx < bikes.Count; idx++)
+{
+ Console.WriteLine("-" + bikes[idx]);
+}
+// Insert a new item between a specific index
+bikes.Insert(2, "Yamaha");
+//Removal from Generic List
+//Remove is a lot like Javascript array pop, but searches for a specified value
+//In this case we are removing all manufacturers located in Japan
+bikes.Remove("Suzuki");
+bikes.Remove("Yamaha");
+bikes.RemoveAt(0); //RemoveAt has no return value however
+//The updated list can then be iterated through using a foreach loop
+Console.WriteLine("List of Non-Japanese Manufacturers:");
+foreach (string manu in bikes)
+{
+ Console.WriteLine("-" + manu);
+}
+
+
+IIX Dictionary classes
+    A. final collection 
+        1. similar to lists and is in generics
+        2/ use type key and t value
+
+
+Dictionary<string,string> profile = new Dictionary<string,string>();
+//Almost all the methods that exists with Lists are the same with Dictionaries
+profile.Add("Name", "Speros");
+profile.Add("Language", "PHP");
+profile.Add("Location", "Greece");
+Console.WriteLine("Instructor Profile");
+Console.WriteLine("Name - " + profile["Name"]);
+Console.WriteLine("From - " + profile["Location"]);
+Console.WriteLine("Favorite Language - " + profile["Language"]);
+
+
+
+foreach (KeyValuePair<string,string> entry in profile)
+{
+ Console.WriteLine(entry.Key + " - " + entry.Value);
+}
+
+foreach (var entry in profile)
+{
+ Console.WriteLine(entry.Key + " - " + entry.Value);
+}

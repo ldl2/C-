@@ -1,0 +1,188 @@
+I.  ASP.Net
+    A. unique names are required to avoid dependency issues
+        1. dotnet new web- sets it up
+            a) dotnet restore, then dotnet run currently gives Hello World on localhost:5000
+        2. csproj file- inlcuded ASP.Net framework 
+        3. program.cs logic for starting webserver Kestrel.
+            a. Main method has call to Startup.cs
+                A) this file does config to server
+                B) what happens with various HTTP requests.
+    B. Complex apps to complex exceptions and errors
+        1. VS code debugger
+        2. messages about state of apps
+            a. add this to startup
+// Other using statements
+using Microsoft.Extensions.Logging;
+ 
+// Other code
+public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
+{
+    loggerFactory.AddConsole();
+        if (env.IsDevelopment())
+        {
+         app.UseDeveloperExceptionPage();
+        }
+    // Other middleware
+}
+
+        3. developer exception pages
+            a. remove for production
+            b. need this variable export ASPNETCORE_ENVIRONMENT=Development
+        4. Dotnet watch
+            a. tells to rebuild and run app after changes to .cs files
+<ItemGroup>
+  <DotNetCliToolReference Include="Microsoft.DotNet.Watcher.Tools" Version="1.0.0" />
+</ItemGroup>
+            b. need a restore but then can UseDeveloperExceptionPage
+                A) dotnet watch run, useful with any command
+        C.MVC
+            1. All code and logic in Program.cs
+                a. section class-based files
+                b. add ASP.NET Core MVC
+dotnet add package Microsoft.AspNetCore.Mvc -v=1.1
+dotnet restore
+                c. replace 
+public void ConfigureServices(IServiceCollection services)
+{
+}
+// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
+{
+     loggerFactory.AddConsole();
+     if (env.IsDevelopment())
+     {
+         app.UseDeveloperExceptionPage();
+     }
+     app.Run(async (context) =>
+     {
+         await context.Response.WriteAsync("Hello World!");
+     });
+}
+
+as
+
+public void ConfigureServices(IServiceCollection services)
+{
+    services.AddMvc();
+}
+// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
+{
+    loggerFactory.AddConsole();
+    if (env.IsDevelopment())
+    {
+        app.UseDeveloperExceptionPage();
+    }
+    app.UseMvc();
+}
+
+(only really the end bit changes in both things)
+
+    D. Controllers
+        1. needs to be created
+            a. in folder Controllers
+            b. new one fore each major kind of object our data deals with
+                A) userscontroller handles logging in and out userscontroller
+                B) Products Controller creates and modifies Products
+            c. startup code for these
+
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+ 
+namespace YourNamespace.Controllers
+{
+    public class HelloController : Controller
+    {
+        [HttpGetAttribute]
+        public string Index()
+        {
+            return "Hello World!";
+        }
+    }
+}
+
+                A). simply sends a string
+            d. routing to contorller method
+                A)in startup.cs
+                    1) modify app.UseMvc();
+// Other code
+public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
+{
+    //Debug code...
+    app.UseMvc( routes =>
+    {
+        routes.MapRoute(
+            name: "Default", // The route's name is only for our own reference
+            template: "", // The pattern that the route matches
+            defaults: new {controller = "Hello", action = "Index"} // The controller and method to execute
+        );
+    });
+}
+    E. Serving Views
+        1.routing
+            a. don't need ugly routing 
+            b.route to our controller methods
+// Inside your Controller class
+// Other code
+ 
+// A GET method
+[HttpGet]
+[Route("index")]
+public string Index()
+{
+    return "Hello World!";
+}
+ 
+// A POST method
+[HttpPost]
+[Route("")]
+public IActionResult Other()
+{
+    // Return a view (We'll learn how soon!)
+}
+            c. [HttpGet] is optional as default but [HttpPost] is required
+                A) Route("index") = localhost:5000/index
+            d. parameter acceptance [Route("template/{Name}")] goes into public IActionResult Method(string Name), however this expecs it and will break without it
+        2. returning JSON
+            a.JSON used for AJAX operations with front end
+            b. common return format is API.
+            c. MVC contains a serializing C# objects to JSON.
+                A) API backend is a snap
+using Microsoft.AspNetCore.Mvc;
+ 
+namespace YourNamespace.controllers
+{
+    public class YourController : controller
+    {
+        [HttpGet]
+        [Route("")]
+        public JsonResult Example()
+        {
+            // The Json method convert the object passed to it into JSON
+            return Json(SomeC#Object);
+        }
+    }
+}
+            d. Json() method will take object for seialization
+            c.  Write class definition with appropriate fields
+                A)instead of many classes use anonymous objects
+                B)Here we construct an anonymous object with FirstName, LastName, and Age properties:
+// Other code
+[HttpGet]
+[Route("displayint")]
+public JsonResult DisplayInt()
+{
+    var AnonObject = new {
+                         FirstName = "Raz",
+                         LastName = "Aquato",
+                         Age = 10
+                     };
+    return Json(AnonObject);
+}
+            d. can use for JSON but also elsewhere
+                A) use in moderation many with same set of properties then need a class
+
+
+
+
+

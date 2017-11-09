@@ -1,0 +1,29 @@
+I. C#2
+	A. new zoom link email with details-pinned mattermost
+	B. https://codingdojo.zoom.us/j/215680447 zoom link same days
+	C. data validation with data attributes can write your own custome validation attributes
+		1. expand base validation attribute to wrtie custom...
+		2. in models. custom validation
+		using System.ComponentModel.DataAnnotations;
+		namespace AspModels.Models.Validations
+		{
+			public class NoDevonAttribute : ValidationAttribute
+			{
+				protected override ValidationAttribute IsValid(object value, ValidationContext validationContext)
+				{
+					*may need to cast like is this date in the future* will be on exam
+					if ((string)value=="Devon")
+						{
+							return new ValidationResult("No Devon's allowed here");
+						}
+					else
+						{
+							return ValidationResult.Success;
+						}
+				}
+			}
+		}
+
+		elsewhere
+		include using AspModels.Models.Validations
+		
