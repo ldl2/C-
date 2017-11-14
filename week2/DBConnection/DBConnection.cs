@@ -8,7 +8,7 @@ namespace DbConnection
     {
         static string server = "localhost";
         
-        static string db = "myDatabase"; //Change to your schema name
+        static string db = "consoleDB"; //Change to your schema name
         static string port = "3306"; //Potentially 8889
         static string user = "root";
         static string pass = "";

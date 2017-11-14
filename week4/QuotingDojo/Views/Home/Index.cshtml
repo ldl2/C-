@@ -1,0 +1,18 @@
+@model QuotingDojo.Models.quoting
+@{
+    ViewData["Title"] = "QuotingDojo";
+}
+<h1>Welcome to QuotingDojo</h1>
+<form asp-action="QuotesSubmit" method="post">
+    <div class="form-group">
+        <span asp-validation-for="name"></span>
+        <label asp-for="name"></label> 
+        <input asp-format="text" asp-for="name">
+    </div>
+    <div class="form-group">
+        <span asp-validation-for="quote"></span>
+        <label asp-for="quote"></label> 
+        <input asp-format="text" asp-for="quote">
+    </div>
+    <button type="submit">Add my Quote!</button> <button type="button"><a href="/quotes">Skip to quotes!</a></button>
+</form>

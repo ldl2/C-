@@ -1,0 +1,11 @@
+
+            <!-- $( '.update' ).submit(function( event ) {
+                event.preventDefault();
+                var form = $(this);
+
+                $.ajax('/delete/@notes["id"]',{
+                    type: "Post",
+                    data: form.serialize(),
+                    dataType: 'json',
+                    success: function(resp){}})
+            }); -->

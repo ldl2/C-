@@ -1,0 +1,12 @@
+I. Models validation
+	a. required -validates whether the field has a value
+	b. reex -validates if submited value conforms to regex string
+	c. MinLength()/MaxLength()
+	d. Range- is in this range
+	e. Email-form of email
+	f. Compare()-validates 2 fields contain smae vlaue
+	e. DataType(DataTyp.Password)
+
+	A. when it makes an instance of the model it will validate
+		1. run through TryValidateModel()
+	B. MOdel BInding

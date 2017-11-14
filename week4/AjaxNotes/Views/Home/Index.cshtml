@@ -1,0 +1,32 @@
+@{
+    ViewData["Title"] = "Home Page";
+}
+<h1>Default Blank Page~</h1>
+<p>Get to adding stuff</p>
+
+@foreach (var notes in ViewBag.notelist)
+    {
+        <p>@notes["Title"]  <a href="/delete/@notes["id"]">delete</a>  </p>
+        <div class="toggle">
+            @notes["Description"]
+        </div>
+        <div class="toggle2">
+            <form class="update" asp-action="UpdateNote" method="post">
+                <div class="form-group">
+                    <span asp-validation-for="description"></span>
+                    <label asp-for="description"></label> 
+                    <input asp-format="text" asp-for="description">
+                </div>
+                <button type="submit">Add Note</button>
+            </form>
+        </div>
+    }
+
+<form asp-action="AddNote" method="post">
+    <div class="form-group">
+        <span asp-validation-for="title"></span>
+        <label asp-for="title"></label> 
+        <input asp-format="text" asp-for="title">
+    </div>
+    <button type="submit">Add Note</button>
+</form>
