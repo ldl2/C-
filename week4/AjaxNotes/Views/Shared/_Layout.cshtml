@@ -10,29 +10,40 @@
             asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
     
     <link rel="stylesheet" href="~/css/site.css" />
+</head>
+<body>
 
     <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-2.2.0.min.js"
             asp-fallback-src="~/lib/jquery/dist/jquery.js"
             asp-fallback-test="window.jQuery">
     </script>
     <script type="text/javascript">
-        var data = {
-            description:
-        }
         $(document).ready(function(){
+            $('.hid').click(function(){
+                $('.seek').show('fast')
+            })
+            $('.hid').click(function(){
+                $('.hid').hide('fast')
+            })
+            $('.uppyinput').keypress(function(event){
+                if (event.which ==13){
+                    event.preventDefault();
+                    $(".uppy").submit();
+                }
+            })
             $('.toggle').click(function(){
-                $('.toggle2').show('fast');
-            });
-            $('.toggle').click(function(){
-                $('.toggle').hide('fast');
-            });
-            $(".update").click(function(){
-                $('.update').submit();
-            });
-        });
+                console.log("I was clicked")
+                $.ajax({ 
+                    url: '/hey'
+                },function(data){
+                    console.log(data)
+                })
+            })});
+            
         </script>
-</head>
-<body>
+
+
+
     <div class="container body-content">
         @RenderBody()
     </div>

@@ -1,26 +1,25 @@
+@model AjaxNotes.Models.Notes
 @{
     ViewData["Title"] = "Home Page";
 }
-<h1>Default Blank Page~</h1>
-<p>Get to adding stuff</p>
+@foreach(Dictionary<string, object> note in ViewBag.notelist)
+{
+    <p>@note["Titles"] <a href='/delete/@note["id"]'>delete</a></p>
+    <div class="hid">
+        <p>@note["Description"]</p>
+    </div>
+    <div class="seek">
+        <form class="uppy" asp-action="UpdateNote" method="post">
+        <div class="form-group">
+            <span asp-validation-for="description"></span>
+            <label asp-for="description"></label> 
+            <input class="uppyinput" asp-format="text" asp-for="description">
+        </div>
+        <button type="submit">Update Description</button>
+        </form>
+    </div>
+}
 
-@foreach (var notes in ViewBag.notelist)
-    {
-        <p>@notes["Title"]  <a href="/delete/@notes["id"]">delete</a>  </p>
-        <div class="toggle">
-            @notes["Description"]
-        </div>
-        <div class="toggle2">
-            <form class="update" asp-action="UpdateNote" method="post">
-                <div class="form-group">
-                    <span asp-validation-for="description"></span>
-                    <label asp-for="description"></label> 
-                    <input asp-format="text" asp-for="description">
-                </div>
-                <button type="submit">Add Note</button>
-            </form>
-        </div>
-    }
 
 <form asp-action="AddNote" method="post">
     <div class="form-group">
@@ -30,3 +29,4 @@
     </div>
     <button type="submit">Add Note</button>
 </form>
+<button class="toggle">Click me</button>

@@ -37,5 +37,4 @@ namespace LogReg.Controllers
         public IActionResult sucess() => View("Success");
     }
         
-    }
 }
