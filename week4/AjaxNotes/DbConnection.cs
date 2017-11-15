@@ -13,7 +13,7 @@ namespace DbConnection
         static string pass = "Amino600";
         internal static IDbConnection Connection {
             get {
-                return new MySqlConnection($"Server={server};Port={port};Database={db};UserID={user};Password={pass};SslMode=None");
+                return new MySqlConnection($"Server={server};Port={port};Database={db};UserID={user};Password={pass};SslMode=None;Convert Zero Datetime=True");
             }
         }
         

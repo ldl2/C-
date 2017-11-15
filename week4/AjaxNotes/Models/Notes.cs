@@ -12,6 +12,7 @@ namespace AjaxNotes.Models
 
         public DateTime made = DateTime.Now;
         public DateTime edited = DateTime.Now;
+        public int id;
 
 
     }

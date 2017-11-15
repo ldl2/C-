@@ -29,19 +29,31 @@ namespace AjaxNotes.Controllers
             {
                 
                 DbConnector.Execute(queryString: $"INSERT INTO NotesDB (Titles, Description, Created_at, Updated_at) VALUES ('{notes.title}', '{notes.description}', '{notes.made.ToString("yyyy-MM-dd HH:mm:ss")}', '{notes.edited.ToString("yyyy-MM-dd HH:mm:ss")}')");
-                return RedirectToRoute("/");
+                return RedirectToAction("Index");
             }
             else
-                return RedirectToRoute("/");
+                return RedirectToAction("Index");
         }
 
         [HttpPost]
-        [Route("update/{id}/{Desc}")]
-        public  IActionResult UpdateNote(int id, string Desc)
+        [Route("update")]
+        public  IActionResult UpdateNote(int id, string description, string title)
         {
-            DateTime uptime = DateTime.Now;
-            DbConnector.Execute($"UPDATE NotesDB SET Description={Desc}, Updated_at={uptime} WHERE id={id};");
-            return RedirectToRoute("/");
+            Notes notes = new Notes()
+            {
+                title = title,
+                description = description,
+                id = id,
+                edited = DateTime.Now
+            };
+            if(ModelState.IsValid)
+            {
+                DbConnector.Execute($"UPDATE NotesDB SET Description='{notes.description}', Updated_at='{notes.edited}' WHERE id='{notes.id}';");
+                return RedirectToAction("Index");
+            }
+            else
+                return RedirectToAction("Index");
+            
         }
 
         [HttpPost]
@@ -49,7 +61,7 @@ namespace AjaxNotes.Controllers
         public IActionResult DeleteNote(int id)
         {
             DbConnector.Execute($"DELETE FROM NotesDB WHERE id={id}");
-            return RedirectToRoute("/");
+            return RedirectToAction("Index");
         }
         [Route("hey")]
         public JsonResult heys()
