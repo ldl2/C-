@@ -28,7 +28,13 @@ namespace DojoLeague.Controllers
         {
             if(ModelState.IsValid)
             {
-                
+                DLDojo dbdojo = new DLDojo()
+                {
+                    name = newDojo.name,
+                    location = newDojo.location,
+                    info = newDojo.info,
+                };
+                return RedirectToAction("Dojo");
             }
             return View("Dojos");
         }

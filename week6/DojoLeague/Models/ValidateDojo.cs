@@ -11,7 +11,7 @@ namespace DojoLeague.Models
 		public string name {get; set;}
 		[Required(ErrorMessage="Location is required")]
 		[Display(Name="Dojo Location")]
-		public int location {get; set;}
+		public string location {get; set;}
 		[Display(Name="Additional Dojo Information")]
 		public string info {get;set;}
 	}
