@@ -4,13 +4,12 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Http;
 using FormSub.Models;
-using DbConnection;
 
 namespace FormSub.Controllers
 {
     public class UsersController : Controller
     {
-        private readonly DbConnector _dbConnector;
+        public DbConnector _dbConnector;
         public UsersController(DbConnector connect)
         {
             _dbConnector = connect;
@@ -27,7 +26,7 @@ namespace FormSub.Controllers
         {
             if(ModelState.IsValid)
             {
-                _dbConnector.Execute($"INSERT INTO submission (First_Name, Last_Name, Age, Email, Password) VALUES ('{user.first_name}', '{user.last_name}', '{user.age}. '{user.email}', '{user.password}')");
+                //_dbConnector.Execute($"INSERT INTO FormSub (First_Name, Last_Name, Age, Email, Password) VALUES ('{user.first_name}', '{user.last_name}', '{user.age}. '{user.email}', '{user.password}')");
                 return View("Success");
             }
             return View("Index");

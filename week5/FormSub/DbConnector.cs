@@ -2,9 +2,8 @@ using System.Collections.Generic;
 using System.Data;
 using Microsoft.Extensions.Options;
 using MySql.Data.MySqlClient;
-using FormSub;
  
-namespace DbConnection
+namespace FormSub
 {
     public class DbConnector
     {

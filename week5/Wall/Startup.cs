@@ -5,7 +5,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Configuration;
 using Microsoft.AspNetCore.Hosting;
 
-namespace Yournamespace
+namespace Wall
 {
     public class Startup
     {
@@ -27,6 +27,7 @@ namespace Yournamespace
             services.AddSession();
             services.Configure<MySqlOptions>(Configuration.GetSection("DBInfo"));
             services.AddMvc();
+            services.AddScoped<DbConnector>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

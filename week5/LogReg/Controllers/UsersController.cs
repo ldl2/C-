@@ -4,7 +4,6 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Http;
 using LogReg.Models;
-using DbConnection;
 
 namespace LogReg.Controllers
 {
@@ -21,20 +20,48 @@ namespace LogReg.Controllers
         public IActionResult Index() => View("Index");
 
         [HttpPost]
-        [Route("submist")]
-        public IActionResult Submit(Users user)
+        [Route("submit")]
+        public IActionResult Register(Users user)
         {
+            if(_dbConnector.Query(queryString: $"SELECT * FROM submission WHERE email='{user.email}'").Count>0)
+            {
+                ModelState.AddModelError(key: "email", errorMessage: "user exists");
+            }
             if(ModelState.IsValid)
             {
                 _dbConnector.Execute($"INSERT INTO submission (First_Name, Last_Name, Email, Password) VALUES ('{user.first_name}', '{user.last_name}', '{user.email}', '{user.password}')");
-                return View("Success");
+                return View("Registered");
             }
             return View("Index");
         }
+        [HttpPost]
+        [Route("login")]
+        public IActionResult Login(string email, string password)
+        {
+            Users user = new Users()
+            {
+                password = password,
+                email = email,
+                last_name = "tbd",
+                first_name = "tbd",
+            };
+            System.Console.WriteLine(_dbConnector.Query($"SELECT * FROM submission WHERE email='{user.email}' AND password='{user.password}'").Count);
 
+            if(_dbConnector.Query(queryString: $"SELECT * FROM submission WHERE email='{user.email}' AND password='{user.password}'").Count!=1)
+            {
+                ModelState.AddModelError(key: "email", errorMessage: "email/password combo does not exist");
+            }
+            if(ModelState.IsValid)
+            {
+                return RedirectToAction("Success");
+            }
+            else
+            {
+                return View("Index");
+            }
+        }
         [HttpGet]
-        [Route("sucess")]
-        public IActionResult sucess() => View("Success");
+        [Route("success")]
+        public IActionResult Success() => View("Success");
     }
-        
 }

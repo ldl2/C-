@@ -28,17 +28,26 @@
             $('.uppyinput').keypress(function(event){
                 if (event.which ==13){
                     event.preventDefault();
-                    $(".uppy").submit();
+                    $(".uppy").submit(event2){
+                        var UpdateForm = $(this).serialize(event);
+                        console.log($(this);)
+                    };
                 }
             })
-            $('.toggle').click(function(){
-                console.log("I was clicked")
-                $.ajax({ 
-                    url: '/hey'
-                },function(data){
-                    console.log(data)
+            $('.uppy').submit(function(event){
+                
+                console.log($(this);)
+                
+                .ajax({
+                    url:"/update",
+                    method: 'post',
+                    data: UpdateForm,
+                    success:function(response){
+                        console.log(response);
+                    }
                 })
-            })});
+            })
+        });
             
         </script>
 

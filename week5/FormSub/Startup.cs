@@ -25,8 +25,9 @@ namespace FormSub
         {
             // Add framework services.
             services.AddSession();
-            services.Configure<MySqlOptions>(Configuration.GetSection("DBInfo"));
             services.AddMvc();
+            services.Configure<MySqlOptions>(Configuration.GetSection("DBInfo"));
+            services.AddScoped<DbConnector>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

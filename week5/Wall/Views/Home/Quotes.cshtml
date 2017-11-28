@@ -1,0 +1,14 @@
+@{
+    ViewData["Title"] = "QuotingDojo";
+}
+@using System
+@using System.Collections.Generic
+@using Wall.Models
+@model Wall.Models.ValidationQuote
+<h3>Here are the awesome quotes!</h3>
+
+    @foreach (var quoters in ViewBag.quotelist)
+    {
+        <p>@quoters["Quotes"]</p>
+        <p>@quoters["Name"] at @quoters["Created_at"] </p>
+    }

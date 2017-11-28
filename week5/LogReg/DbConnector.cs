@@ -2,9 +2,8 @@ using System.Collections.Generic;
 using System.Data;
 using Microsoft.Extensions.Options;
 using MySql.Data.MySqlClient;
-using LogReg;
 
-namespace DbConnection
+namespace LogReg
 {
     public class DbConnector
     {

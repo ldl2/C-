@@ -1,0 +1,52 @@
+@using DojoLeague.Models.NinjaValidation
+@{
+    ViewData["Title"] = "Dojo League-Ninjas";
+}
+<div>
+    <h1>Register a Ninja</h1>
+    <form asp-action="CreateNinja" method="post">
+    <div class="form-group">
+        <span asp-validation-for="name"></span>
+        <label asp-for="name"></label> 
+        <input asp-format="text" asp-for="name">
+    </div>
+    <div class="form-group">
+        <span asp-validation-for="level"></span>
+        <label asp-for="level"></label> 
+        <input asp-format="text" asp-for="level">
+    </div>
+    <div class="form-group">
+        <span asp-validation-for="dojo"></span>
+        <label asp-for="dojo"></label> 
+        <input asp-format="DropDownList" asp-for="dojo">
+            <option value="">Rogue</option>
+            <option value=""></option>
+    </div>
+    <div class="form-group">
+        <span asp-validation-for="description"></span>
+        <label asp-for="description"></label> 
+        <input asp-format="text" asp-for="description">
+    </div>
+    <button type="submit">Add</button>
+</div>
+<div>
+    <h1>All Dojos</h1>
+    <table>
+        <tr>
+            <th>
+                Ninja Name
+            </th>
+            <th>
+                Home Dojo
+            </th>
+        </tr>
+        <tr>
+            <td>
+
+            </td>
+            <td>
+                
+            </td>
+        </tr>
+    </table>
+</div>

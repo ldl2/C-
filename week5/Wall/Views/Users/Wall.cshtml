@@ -1,0 +1,42 @@
+@using Wall.Models
+@model Wall.Models.ValidationComment
+@{
+    ViewData["Title"] = "QuotingDojo";
+}
+<h3>Here are the awesome quotes!</h3>
+
+@foreach(var quoters in ViewBag.quotelist)
+{
+    <p>@quoters["quote"]</p>
+    <p>@quoters["name"] at @quoters["created_at"] </p>
+    @foreach (var commentor in ViewBag.commentlist)
+    {
+        
+            if(@commentor["quote_id"]==@quoters["id"])
+            {
+                <p>@commentor["comment"]</p>
+                <p>@commentor["name"] at @commentor["created_at"]</p>
+            }
+    }
+        <form asp-action="CommentSubmit" method="post">
+            <div class="Hidden-form-group">
+                <span asp-validation-for="quote_id"></span>
+                <label asp-for="quote_id"></label> 
+                <input asp-format="text" asp-for="quote_id" value='@quoters["id"]'>
+            </div>
+            <div class="Hidden-form-group">
+                <span asp-validation-for="user_id_comment"></span>
+                <label asp-for="user_id_comment"></label> 
+                <input asp-format="text" asp-for="user_id_comment" value="@ViewBag.id">
+            </div>
+            <div class="form-group">
+                <span asp-validation-for="Comment"></span>
+                <label asp-for="Comment"></label> 
+                <input asp-format="text" asp-for="Comment">
+            </div>
+            <button type="submit">Add my Comment!</button>
+        </form>
+
+}
+
+@Html.Partial("QuotePartial")

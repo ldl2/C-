@@ -1,0 +1,35 @@
+@model LostintheWoods.Models.ValidateTrail
+<H1>Add A New Trail</H1>
+<a href="/">Go Home</a>
+<form asp-action="Create" method="post">
+    <div class="form-group">
+        <span asp-validation-for="name"></span>
+        <label asp-for="name"></label> 
+        <input asp-format="text" asp-for="name">
+    </div>
+    <div class="form-group">
+        <span asp-validation-for="desc"></span>
+        <label asp-for="desc"></label> 
+        <input asp-format="text" asp-for="desc">
+    </div>
+    <div class="form-group">
+        <span asp-validation-for="length"></span>
+        <label asp-for="length"></label> 
+        <input asp-format="text" asp-for="length">
+    </div>
+    <div class="form-group">
+        <span asp-validation-for="elevation"></span>
+        <label asp-for="elevation"></label> 
+        <input asp-format="text" asp-for="elevation">
+    </div>
+    <div class="form-group">
+        <span asp-validation-for="longitude"></span>
+        <label asp-for="longitude"></label> 
+        <input asp-format="text" asp-for="longitude">
+    </div>
+    <div class="form-group">
+        <span asp-validation-for="latitude"></span>
+        <input asp-format="text" asp-for="latitude">
+    </div>
+    <button type="submit">Create Record</button>
+</form>

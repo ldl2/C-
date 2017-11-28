@@ -1,0 +1,19 @@
+@model Wall.Models.ValidationQuote
+@{
+        <h1>Welcome to QuotingDojo @ViewBag.currentname</h1>
+        <form asp-action="QuotesSubmit" method="post">
+            <div class="Hidden-form-group">
+                <span asp-validation-for="user_id"></span>
+                <label asp-for="user_id"></label> 
+                <input asp-format="text" asp-for="user_id" value="@ViewBag.id">
+            </div>
+            <div class="form-group">
+                <span asp-validation-for="quote"></span>
+                <label asp-for="quote"></label> 
+                <input asp-format="text" asp-for="quote">
+            </div>
+            <button type="submit">Add my Quote!</button>
+        </form>
+    
+}
+<button type="button"><a href="/">Go Back to Login</a></button>
