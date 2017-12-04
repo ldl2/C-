@@ -21,5 +21,16 @@ namespace DojoLeague.Factory
                 return new MySqlConnection(connectionString);
             }
         }
+        public IEnumerable<ValidateNinja> PlayersForTeamById(int id)
+        {
+            using (IDbConnection dbConnection = Connection)
+            {
+                var query = $"SELECT * FROM ninjas JOIN dojos ON ninjas.dojo_id WHERE dojos.id = ninjas.dojo_id AND dojos.id = {id}";
+                dbConnection.Open();
+        
+                var myValidateNinjas = dbConnection.Query<ValidateNinja, ValidateDojo, ValidateNinja>(query, (ValidateNinja, ValidateDojo) => { ValidateNinja.dojo = ValidateDojo; return ValidateNinja; });
+                return myValidateNinjas;
+            }
+        }
     }
 }

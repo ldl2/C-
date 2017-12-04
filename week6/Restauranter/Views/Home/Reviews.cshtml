@@ -1,0 +1,9 @@
+@model Restauranter.Models.User
+
+@foreach(var rev in ViewBag.MyUsers)
+{
+    <p>Review for @rev.resteraunt   @rev.stars  star(s)</p>
+    <p>Reviewer: @rev.name, @rev.visit</p>
+    <p>@rev.review</p>
+    <hr>
+}

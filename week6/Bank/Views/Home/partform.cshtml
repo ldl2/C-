@@ -1,0 +1,8 @@
+@model Bank.Models.ValidateAccountModel
+<form asp-action="Amounts" method="post">
+    <div class="form-group">
+        <span asp-validation-for="amount"></span>
+        <label asp-for="amount"></label> 
+        <input asp-format="text" asp-for="amount">
+    </div>
+</form>

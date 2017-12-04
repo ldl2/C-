@@ -1,0 +1,30 @@
+@model Belt.Models.ValidateAuctionModel
+@{
+    ViewData["Title"] = "Home Page";
+}
+<h1>New Auction</h1>
+<a href="/current">Home</a>
+<a href="/logout">Logout</a>
+<form asp-action="Create" method="post">
+    <div class="form-group">
+        <span asp-validation-for="product"></span>
+        <label asp-for="product"></label> 
+        <input asp-format="text" asp-for="product">
+    </div>
+    <div class="form-group">
+        <span asp-validation-for="startingbid"></span>
+        <label asp-for="startingbid"></label> 
+        <input asp-format="text" asp-for="startingbid">
+    </div>
+    <div class="form-group">
+        <span asp-validation-for="description"></span>
+        <label asp-for="description"></label> 
+        <input asp-format="text" asp-for="description">
+    </div>
+    <div class="form-group">
+        <span asp-validation-for="enddate"></span>
+        <label asp-for="enddate"></label> 
+        <input asp-format="datetime" asp-for="enddate">
+    </div>
+    <button type="Submit">Create Auction</button>
+</form>

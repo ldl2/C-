@@ -15,7 +15,7 @@ namespace DojoLeague.Models
 		[Display(Name="Ninjaing Level (1-10)")]
 		public int level {get; set;}
 		[Display(Name="Assigned Dojo")]
-		public string dojo {get;set;}
+		public ValidateDojo dojo {get;set;}
 		[Display(Name="Optional Description")]
 		public string description {get;set;}
 	}

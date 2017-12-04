@@ -1,0 +1,86 @@
+I. Entity Framework Core
+	A. EF Core newest of EF made in 2008
+		1. more powerful and flexible-supports variety of databases
+	B. in use
+		1.similar to dapper---but don't need factory classses
+			a. doesn't even use query methods AT ALLLLLLLLLLLLLLLLLLLLLL!
+			b. methods are built in
+			c. LINQ accesses them
+		2. needs a dependency
+			a. dotnet add package MySql.Data.EntityFrameworkCore 
+		3. Need to build b/w db and models
+			a.File "context"
+			b. context classes-must end in Context
+e.g.
+
+YOURCONTEXT.cs
+using Microsoft.EntityFrameworkCore;
+ 
+namespace YourNamespace.Models
+{
+    public class YourContext : DbContext
+    {
+        // base() calls the parent class' constructor passing the "options" parameter along
+        public YourContext(DbContextOptions<YourContext> options) : base(options) { }
+    }
+}
+
+
+This must be injected as a service at:
+STARTUP.cs
+
+using YourNamespace.Models;
+using MySQL.Data.EntityFrameworkCore;
+using MySQL.Data.EntityFrameworkCore.Extensions;
+ 
+// Other code
+public void ConfigureServices(IServiceCollection services)
+{
+    services.AddDbContext<YourContext>(options => options.UseMySQL(Configuration["DBInfo:ConnectionString"]));
+    // Add other services
+}
+
+
+and we need connection string
+
+use appsetting.json
+
+		4.for each TABLE in our DB we create  aDbSet property within our context class
+		5. table and class match
+
+//other code
+public class YourContext : DbContext
+{
+    // Other code
+ 
+    // This DbSet contains "Person" objects and is called "Users"
+    public DbSet<Person> Users { get; set; }
+}
+
+Since brought into we finally need to inject it into controller
+
+using Microsoft.EntityFrameworkCore;
+using YourNamespace.Models;
+using System.Linq;
+// Other usings
+ 
+public class YourController : Controller
+{
+    private YourContext _context;
+ 
+    public YourController(YourContext context)
+    {
+        _context = context;
+    }
+ 
+    [HttpGet]
+    [Route("")]
+    public IActionResult Index()
+    {
+        List<Person> AllUsers = _context.Users.ToList();
+        // Other code
+    }
+}
+
+
+The need for DbSets can related to as many tables as needed

@@ -1,0 +1,69 @@
+I. Querying w/ EF Core
+	A. retrieval is done by grabbing entire tables.
+	B. _context.Users returns every entry in the table
+		1. Linq does more complicated queries
+		2. can chain queries to get results
+	C. Retrieval
+		1. filter with where.
+			A. accepts anonymous f(x) as its parameter
+				1. checks ea value in expression that evalutes to a boolean.  
+				2. True gets added to collection
+				3. example
+
+using Microsoft.EntityFrameworkCore;
+using System.Linq;
+using YourNamespace.Models;
+// Other code
+public IActionResult AllAdults()
+{
+    List<Person> ReturnedValues = _context.Users.Where(user => user.Age > 17).ToList();
+    // Other code
+}
+
+					a. for one result use .SingleOrDefault
+					b. Person returnedvalue
+	D. Adding
+		1. Context contains a method called add.
+		2.pass an object
+			a. stage for saving to database.
+			b. must SaveChanges
+		3. EF looks for the right DBSet to pass a specific object to  and save entry to that table
+
+		D1. add to controller
+
+//Other code
+public IActionResult Create()
+{
+    Person NewPerson = new Person
+    {
+        Name = "Name",
+        Email = "email@example.com",
+        Password = "HashThisFirst",
+        Age = 24
+    };
+ 
+    _context.Add(NewPerson);
+    // OR _context.Users.Add(NewPerson);
+    _context.SaveChanges();
+}
+
+	E. Updating
+		1.takes object updates properties and passes back
+		E1
+
+Person RetrievedUser = _context.Users.SingleOrDefault(user => user.ID == SomeNumber);
+RetrievedUser.Name = "New name";
+_context.SaveChanges();
+
+	F. Removing
+		1. passed to Remove method.
+		2.savechanges executes
+
+Person RetrievedUser = _context.Users.SingleOrDefault(user => user.ID == SomeNumber);
+_context.Users.Remove(RetrievedUser);
+_context.SaveChanges();
+
+
+	G. Note mods (adding updating removing) to DB all require savechanges
+		1. this is becuase we have  alocal version we cna modify all we want savechanges actually passes this all back to the REAL DB
+			a. reduces number of DB accesses to imporve performance

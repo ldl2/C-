@@ -1,0 +1,30 @@
+@model Belt.Models.ValidateUserModel
+<h1>Register</h1>
+<form asp-action="Register" method="post">
+    <div class="form-group">
+        <span asp-validation-for="firstname"></span>
+        <label asp-for="firstname"></label> 
+        <input asp-format="text" asp-for="firstname">
+    </div>
+    <div class="form-group">
+        <span asp-validation-for="lastname"></span>
+        <label asp-for="lastname"></label> 
+        <input asp-format="text" asp-for="lastname">
+    </div>
+    <div class="form-group">
+        <span asp-validation-for="username"></span>
+        <label asp-for="username"></label> 
+        <input asp-format="text" asp-for="username">
+    </div>
+    <div class="form-group">
+        <span asp-validation-for="password"></span>
+        <label asp-for="password"></label> 
+        <input asp-format="password" asp-for="password">
+    </div>
+    <div class="form-group">
+        <span asp-validation-for="cpassword"></span>
+        <label asp-for="cpassword"></label> 
+        <input asp-format="password" asp-for="cpassword">
+    </div>
+    <button type="submit">Register</button>
+</form>

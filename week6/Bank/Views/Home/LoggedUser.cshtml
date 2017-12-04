@@ -1,0 +1,24 @@
+@using Bank.Models
+@model Bank.Models.User
+@{
+    ViewData["Title"] = "A Web Page";
+}
+<h1>Welcome @Model.firstname @Model.lastname</h1>
+@Html.Partial("partform", (ValidateAccountModel)@ViewBag.acc)
+<table>
+    <thead>
+        <tr>
+            <th>Amount</th>
+            <th>Date</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var atm in @Model.Accounts)
+        {
+            <tr>
+                <td>@atm.amount</td>
+                <td>@atm.created_at.ToString("MMM dd yyyy")</td>
+            </tr>
+        }
+    </tbody>
+</table>

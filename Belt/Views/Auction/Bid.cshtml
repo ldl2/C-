@@ -1,0 +1,8 @@
+@model Belt.Models.ValidateBidModel
+<form asp-action="Bid" method="post">
+    <div class="form-group">
+        <span asp-validation-for="amount"></span>
+        <input placeholder="Your bid goes here.." asp-format="text"  asp-for="amount" >
+    </div>
+    <button type="Submit">Bid!</button>
+</form>

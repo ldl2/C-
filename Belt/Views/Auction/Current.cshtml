@@ -1,0 +1,40 @@
+@using Belt.Models
+@model Belt.Models.User
+<h1>Current Auctions</h1>
+<p>Hi @Model.firstname!</p>
+<p><a href="/logout">Logout</a></p>
+<table>
+    <thead>
+        <tr>
+            <th>Product</th>
+            <th>Seller</th>
+            <th>Top Bid</th>
+            <th>Time Remaining</th>
+            <th></th>
+        </tr>
+    </thead>
+        <tbody>
+        @foreach(var U in ViewBag.chartAuction)
+        {
+            @foreach(var Auc in U.Auctions)
+            {
+            <tr>
+                <td><a href="show/@Auc.Auctionid">@Auc.product</a></td>
+                <td>@Auc.user.firstname</td>
+                <td>
+                    @Auc.startingbid</td>
+                <td>@Auc.enddate.Subtract(DateTime.Now).ToString("dd") Day(s)</td>
+                <td>
+                    
+                    @if(Auc.Userid ==Model.Userid)
+                    {
+                        <a href="delete/@Auc.Auctionid">delete</a>
+                    }
+                </td>
+            </tr>
+            }
+        }
+        </tbody>
+</table>
+<button type="button"><a href="/new">New Auction</a></button>
+<p>Your Current Wallet: @Model.wallet</p>

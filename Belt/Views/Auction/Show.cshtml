@@ -1,0 +1,36 @@
+@using Belt.Models
+@model Belt.Models.Auction
+@{
+    ViewData["Title"] = "Home Page";
+}
+<a href="/current">Home</a>
+<a href="/logout">Logout</a>
+<h1>@Model.product</h1>
+<p>Created by: @Model.user.firstname</p>
+<p>Time Remaining: @Model.enddate.Subtract(DateTime.Now).ToString("dd") days</p>
+<p>@Model.description</p>
+<table>
+    <thead>
+        <tr>
+            <th>Current Highest Bid:</th>
+            
+            
+                @if(@Model.Bids.Count==0)
+                {
+                    <th>By @Model.user.firstname</th>
+                }
+                else
+                {
+                    <th>By @ViewBag.big</th>
+                }
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>@Model.startingbid</td>
+            <td>@Html.Partial("Bid", (ValidateBidModel)@ViewBag.bid)</td>
+        </tr>
+    </tbody>
+</table>
+
+

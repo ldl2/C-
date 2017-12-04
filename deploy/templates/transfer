@@ -1,0 +1,15 @@
+in my user
+put in /var/www as git as root but then convert to my user
+
+
+mysqldump -u root -p --no-data appppp-name-by-db >dump.sql
+
+then cat and copy sql comands and past at once
+
+create dataase dbname
+
+user dbname
+paste
+show tables
+sudo /etc/supervisor/conf.d/nameoffile.conf
+change yourappname as filename
